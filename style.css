@@ -1,0 +1,1623 @@
+:root {
+  --ink: #292622;
+  --muted: #77716a;
+  --paper: #fcf8f3;
+  --cream: #f3e7d9;
+  --pink: #e7b8bc;
+  --accent: #a98b61;
+  --line: rgba(41, 38, 34, 0.13);
+  --white: #fffdfa;
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "DM Sans", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================================
+   YLAI DUCK LOGO
+   ========================================= */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.brand img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.brand span {
+  display: inline-block;
+}
+
+@media (max-width: 700px) {
+  .brand img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .brand {
+    gap: 7px;
+  }
+}
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 5vw;
+
+  background: rgba(252, 248, 243, 0.92);
+  backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  font: 1.35rem "Playfair Display";
+}
+
+.nav nav {
+  display: flex;
+  gap: 26px;
+  align-items: center;
+
+  font-size: 0.85rem;
+}
+
+.nav nav a {
+  color: var(--muted);
+}
+
+.nav-rsvp {
+  padding: 9px 16px;
+
+  border: 1px solid var(--ink);
+
+  color: var(--ink) !important;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+  min-height: calc(100vh - 68px);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 7vw;
+
+  align-items: center;
+
+  padding: 7vw 9vw;
+}
+
+.hero-copy {
+  max-width: 590px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+
+  font-size: 0.68rem;
+  color: var(--accent);
+
+  font-weight: 600;
+}
+
+.hero h1 {
+  font-size: clamp(3.8rem, 7vw, 7.2rem);
+
+  line-height: 0.96;
+
+  margin: 20px 0 25px;
+
+  letter-spacing: -0.045em;
+}
+
+.hero h1 em {
+  font-weight: 400;
+}
+
+.name {
+  font: 1.2rem "Playfair Display";
+}
+
+.lead {
+  max-width: 470px;
+
+  color: var(--muted);
+
+  line-height: 1.8;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 15px;
+
+  align-items: center;
+
+  margin: 28px 0;
+
+  font-size: 0.72rem;
+
+  letter-spacing: 0.12em;
+
+  font-weight: 600;
+}
+
+.hero-meta i {
+  width: 4px;
+  height: 4px;
+
+  background: var(--pink);
+
+  border-radius: 50%;
+}
+
+.button {
+  display: inline-block;
+
+  border: 0;
+
+  background: var(--ink);
+
+  color: var(--white);
+
+  padding: 15px 23px;
+
+  font: 600 0.78rem "DM Sans";
+
+  cursor: pointer;
+}
+
+.hero-photo {
+  position: relative;
+}
+
+.hero-photo img {
+  display: block;
+
+  width: 100%;
+  height: 610px;
+
+  object-fit: cover;
+
+  border-radius: 180px 180px 8px 8px;
+}
+
+.badge {
+  position: absolute;
+
+  right: -22px;
+  bottom: 24px;
+
+  width: 105px;
+  height: 105px;
+
+  border-radius: 50%;
+
+  background: var(--white);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  font: 2rem "Playfair Display";
+
+  box-shadow: 0 12px 35px #00000018;
+}
+
+.badge small {
+  font: 600 0.55rem "DM Sans";
+
+  letter-spacing: 0.15em;
+}
+
+/* =========================================
+   HERO TITLE
+========================================= */
+
+.hero-title {
+  overflow: visible;
+
+  margin: 20px 0 25px;
+  padding: 0 0 18px;
+
+  /*
+   * Give the large serif letters enough
+   * vertical space so J and other
+   * lower strokes are never clipped.
+   */
+  line-height: 0.96;
+}
+
+
+/* Each line */
+
+.hero-title span {
+  display: block;
+
+  opacity: 0;
+
+  transform: translateY(45px);
+
+  filter: blur(6px);
+
+  animation:
+    heroTextReveal
+    1.2s
+    cubic-bezier(.22, 1, .36, 1)
+    forwards;
+}
+
+
+/* First line */
+
+.hero-title span:first-child {
+  animation-delay: 0.35s;
+}
+
+
+/* Second line */
+
+.hero-title span:last-child {
+  animation-delay: 0.65s;
+}
+
+
+/* =========================================
+   HERO TITLE ANIMATION
+========================================= */
+
+@keyframes heroTextReveal {
+
+  0% {
+    opacity: 0;
+    transform: translateY(45px);
+    filter: blur(6px);
+  }
+
+  60% {
+    opacity: 0.8;
+    filter: blur(2px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+}
+
+
+/* =========================================
+   HERO SUPPORTING CONTENT
+========================================= */
+
+.hero .eyebrow {
+  animation: heroFadeUp 0.9s ease 0.1s both;
+}
+
+.hero .hero-name {
+  animation: heroFadeUp 0.9s ease 0.9s both;
+}
+
+.hero .hero-description {
+  animation: heroFadeUp 0.9s ease 1.05s both;
+}
+
+.hero .hero-meta {
+  animation: heroFadeUp 0.9s ease 1.2s both;
+}
+
+.hero .hero-actions {
+  animation: heroFadeUp 0.9s ease 1.35s both;
+}
+
+
+/* =========================================
+   FADE UP
+========================================= */
+
+@keyframes heroFadeUp {
+
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+  .hero-title {
+    line-height: 0.94;
+    padding-bottom: 14px;
+  }
+
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-title span,
+  .hero .eyebrow,
+  .hero .hero-name,
+  .hero .hero-description,
+  .hero .hero-meta,
+  .hero .hero-actions {
+    animation: none;
+
+    opacity: 1;
+
+    transform: none;
+
+    filter: none;
+  }
+
+}
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+.countdown-wrap {
+  padding: 55px 20px;
+
+  text-align: center;
+
+  border-block: 1px solid var(--line);
+}
+
+.countdown {
+  display: flex;
+
+  justify-content: center;
+
+  gap: clamp(25px, 6vw, 80px);
+
+  margin: 28px 0 8px;
+}
+
+.countdown div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  min-width: 60px;
+}
+
+.countdown strong {
+  font: 500 clamp(2rem, 4vw, 3.4rem)
+    "Playfair Display";
+}
+
+.countdown span {
+  color: var(--muted);
+
+  font-size: 0.65rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.14em;
+}
+
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+.section {
+  padding: 120px 9vw;
+}
+
+.section-heading {
+  max-width: 650px;
+
+  margin-bottom: 60px;
+}
+
+.section-heading h2 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+
+  line-height: 1;
+
+  margin: 0 0 12px;
+}
+
+.centered {
+  text-align: center;
+
+  margin-inline: auto;
+}
+
+.section-note {
+  color: var(--muted);
+
+  font-size: 0.78rem;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   HER STORY
+========================================= */
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8vw;
+  align-items: center;
+}
+
+.story-image {
+  height: 600px;
+}
+
+.story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-copy {
+  max-width: 500px;
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+/* Normal story paragraphs */
+.story-copy > p:not(.dropcap) {
+  margin-bottom: 24px;
+}
+
+.story-intro {
+  margin-bottom: 24px;
+  line-height: 1.9;
+}
+
+/* Decorative O */
+.dropcap {
+  display: inline-block;
+
+  margin-right: 8px;
+  vertical-align: baseline;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 5.5rem;
+  font-weight: 400;
+  line-height: 0;
+
+  color: var(--ink);
+}
+
+/* Signature */
+.signature {
+  margin-top: 40px;
+  color: var(--ink);
+  font: 1.05rem/1.5 "Playfair Display";
+}
+
+/* =========================================
+   EVENT
+========================================= */
+
+.event {
+  background: var(--cream);
+}
+
+.event-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 18px;
+
+  max-width: 1050px;
+
+  margin: auto;
+}
+
+.event-card {
+  padding: 45px;
+
+  background: var(--white);
+
+  min-height: 300px;
+}
+
+.event-card.featured {
+  background: var(--ink);
+
+  color: white;
+}
+
+.event-number {
+  font-size: 0.7rem;
+
+  letter-spacing: 0.15em;
+
+  color: var(--accent);
+}
+
+.event-card h3 {
+  font-size: 2rem;
+
+  margin: 35px 0 15px;
+}
+
+.event-card p {
+  color: var(--muted);
+
+  margin-bottom: 7px;
+}
+
+.event-card.featured p {
+  color: #c7c0b7;
+}
+
+.event-card strong {
+  display: block;
+
+  margin-top: 30px;
+
+  font-size: 0.72rem;
+
+  letter-spacing: 0.1em;
+}
+
+.event-card small {
+  display: block;
+
+  margin-top: 9px;
+
+  color: var(--muted);
+}
+
+.details {
+  max-width: 1050px;
+
+  margin: 18px auto 0;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  border-top: 1px solid var(--line);
+}
+
+.details div {
+  padding: 25px 20px;
+
+  border-right: 1px solid var(--line);
+}
+
+.details div:last-child {
+  border: 0;
+}
+
+.details span {
+  display: block;
+
+  color: var(--muted);
+
+  font-size: 0.65rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.14em;
+
+  margin-bottom: 8px;
+}
+
+.details strong {
+  font-size: 0.85rem;
+}
+
+
+/* =========================================
+   GALLERY
+========================================= */
+
+.gallery-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  grid-auto-rows: 260px;
+
+  gap: 14px;
+}
+
+.gallery-item {
+  margin: 0;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: #eadfd4;
+}
+
+.gallery-item.tall {
+  grid-row: span 2;
+}
+
+.gallery-item.wide {
+  grid-column: span 2;
+}
+
+
+/* -----------------------------------------
+   CLICKABLE PHOTO
+----------------------------------------- */
+
+.gallery-button {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 0;
+
+  border: 0;
+
+  background: none;
+
+  cursor: zoom-in;
+
+  overflow: hidden;
+}
+
+.gallery-button img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition:
+    transform 0.5s ease;
+}
+
+.gallery-button:hover img {
+  transform: scale(1.04);
+}
+
+
+/* -----------------------------------------
+   ZOOM ICON
+----------------------------------------- */
+
+.zoom-icon {
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.88);
+
+  color: var(--ink);
+
+  font-size: 1.4rem;
+
+  font-weight: 400;
+
+  opacity: 0;
+
+  transform: scale(0.8);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.gallery-button:hover .zoom-icon {
+  opacity: 1;
+
+  transform: scale(1);
+}
+
+
+/* -----------------------------------------
+   GALLERY CAPTION
+----------------------------------------- */
+
+.gallery-item figcaption {
+  position: absolute;
+
+  bottom: 0;
+
+  left: 0;
+  right: 0;
+
+  padding: 35px 15px 13px;
+
+  color: white;
+
+  font: 0.72rem "DM Sans";
+
+  background:
+    linear-gradient(
+      transparent,
+      #00000073
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   PHOTO VIEWER / LIGHTBOX
+========================================= */
+
+.photo-viewer {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background: rgba(20, 18, 16, 0.94);
+
+  opacity: 0;
+
+  transition:
+    opacity 0.25s ease;
+}
+
+.photo-viewer.active {
+  display: flex;
+
+  opacity: 1;
+}
+
+
+/* -----------------------------------------
+   VIEWER CONTENT
+----------------------------------------- */
+
+.photo-viewer-content {
+  max-width: 1200px;
+
+  max-height: 90vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  animation: photoZoom 0.3s ease;
+}
+
+.photo-viewer-content img {
+  display: block;
+
+  max-width: 90vw;
+
+  max-height: 82vh;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  box-shadow:
+    0 20px 70px rgba(0, 0, 0, 0.4);
+}
+
+.photo-viewer-content p {
+  margin: 15px 0 0;
+
+  color: white;
+
+  font: 1rem "Playfair Display";
+
+  text-align: center;
+}
+
+
+/* -----------------------------------------
+   CLOSE BUTTON
+----------------------------------------- */
+
+.photo-close {
+  position: fixed;
+
+  top: 22px;
+  right: 28px;
+
+  z-index: 10000;
+
+  width: 45px;
+  height: 45px;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  color: white;
+
+  font-size: 2rem;
+
+  font-weight: 300;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease;
+}
+
+.photo-close:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+
+/* -----------------------------------------
+   LIGHTBOX ANIMATION
+----------------------------------------- */
+
+@keyframes photoZoom {
+
+  from {
+    opacity: 0;
+
+    transform: scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+
+}
+
+
+/* =========================================
+   GODPARENTS
+========================================= */
+
+.godparents {
+  padding-top: 110px;
+  padding-bottom: 120px;
+}
+
+.godparents .section-heading {
+  margin-bottom: 65px;
+}
+
+.godparents .section-note {
+  max-width: 520px;
+  margin: 12px auto 0;
+}
+
+
+/* =========================================
+   GODPARENT GRID
+========================================= */
+
+.godparent-grid {
+  width: min(900px, 90%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+
+/* =========================================
+   GODPARENT CARD
+========================================= */
+
+.godparent-group {
+  position: relative;
+
+  padding: 42px 48px;
+
+  background: rgba(255, 253, 250, 0.7);
+
+  border: 1px solid var(--line);
+
+  border-radius: 4px;
+
+  box-shadow:
+    0 12px 35px rgba(41, 38, 34, 0.05);
+
+  text-align: left;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.godparent-group:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 18px 45px rgba(41, 38, 34, 0.09);
+}
+
+
+/* =========================================
+   CARD TITLE
+========================================= */
+
+.godparent-group .eyebrow {
+  margin-bottom: 28px;
+
+  text-align: center;
+
+  color: var(--accent);
+
+  font-size: 0.72rem;
+  font-weight: 600;
+
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================
+   DECORATIVE LINE
+========================================= */
+
+.godparent-group .eyebrow::after {
+  content: "";
+
+  display: block;
+
+  width: 36px;
+  height: 1px;
+
+  margin: 12px auto 0;
+
+  background: var(--accent);
+
+  opacity: 0.55;
+}
+
+
+/* =========================================
+   NAME LIST
+========================================= */
+
+.godparent-group ol {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  counter-reset: godparent;
+}
+
+
+/* =========================================
+   EACH NAME
+========================================= */
+
+.godparent-group li {
+  counter-increment: godparent;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  min-height: 48px;
+
+  padding: 10px 0 10px 42px;
+
+  border-bottom: 1px solid var(--line);
+
+  color: var(--ink);
+
+  font-size: 0.98rem;
+}
+
+
+/* Remove line from last name */
+
+.godparent-group li:last-child {
+  border-bottom: none;
+}
+
+
+/* =========================================
+   NUMBER CIRCLE
+========================================= */
+
+.godparent-group li::before {
+  content: counter(godparent);
+
+  position: absolute;
+  left: 0;
+
+  width: 27px;
+  height: 27px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(169, 139, 97, 0.45);
+
+  border-radius: 50%;
+
+  color: var(--accent);
+
+  font-family: inherit;
+  font-size: 0.7rem;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .godparents {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .godparents .section-heading {
+    margin-bottom: 40px;
+  }
+
+  .godparent-grid {
+    width: min(500px, 90%);
+
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .godparent-group {
+    padding: 32px 28px;
+  }
+
+  .godparent-group li {
+    font-size: 0.95rem;
+  }
+
+}
+
+
+/* =========================================
+   RSVP
+========================================= */
+
+.rsvp {
+  background: #dfd0c1;
+}
+
+.rsvp-card {
+  max-width: 950px;
+
+  margin: auto;
+
+  background: var(--white);
+
+  padding: clamp(30px, 6vw, 70px);
+
+  display: grid;
+
+  grid-template-columns: 0.9fr 1.1fr;
+
+  gap: 7vw;
+}
+
+.rsvp-card h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+
+  line-height: 1;
+}
+
+.rsvp-card > div:first-child p:last-child {
+  color: var(--muted);
+
+  line-height: 1.7;
+}
+
+form {
+  display: grid;
+
+  gap: 16px;
+}
+
+label {
+  font-size: 0.7rem;
+
+  font-weight: 600;
+}
+
+input,
+select,
+textarea {
+  display: block;
+
+  width: 100%;
+
+  margin-top: 7px;
+
+  padding: 13px 12px;
+
+  border: 1px solid var(--line);
+
+  background: var(--paper);
+
+  color: var(--ink);
+
+  font: 0.85rem "DM Sans";
+
+  outline: 0;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent);
+}
+
+.form-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+}
+
+.optional {
+  color: var(--muted);
+
+  font-weight: 400;
+}
+
+.success {
+  text-align: center;
+
+  align-self: center;
+}
+
+.success-icon {
+  width: 54px;
+  height: 54px;
+
+  border-radius: 50%;
+
+  margin: auto auto 18px;
+
+  display: grid;
+
+  place-items: center;
+
+  background: var(--ink);
+
+  color: white;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+  padding: 45px 9vw;
+
+  border-top: 1px solid var(--line);
+
+  display: flex;
+
+  justify-content: space-between;
+
+  color: var(--muted);
+
+  font-size: 0.68rem;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+  .nav {
+    padding: 15px 20px;
+  }
+
+  .nav nav a:not(.nav-rsvp) {
+    display: none;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    grid-template-columns: 1fr;
+
+    padding: 65px 24px;
+  }
+
+  .hero h1 {
+    font-size: 4.1rem;
+  }
+
+  .hero-photo {
+    order: -1;
+  }
+
+  .hero-photo img {
+    height: 470px;
+
+    border-radius:
+      120px 120px 8px 8px;
+  }
+
+
+  /* SECTIONS */
+
+  .section {
+    padding: 85px 24px;
+  }
+
+
+  /* STORY */
+
+  .story-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .story-image {
+    height: 430px;
+  }
+
+
+  /* EVENT */
+
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .details {
+    grid-template-columns: 1fr;
+  }
+
+  .details div {
+    border-right: 0;
+
+    border-bottom:
+      1px solid var(--line);
+
+    padding-left: 0;
+  }
+
+
+  /* GALLERY */
+
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+
+    grid-auto-rows: 190px;
+  }
+
+  .gallery-item.wide {
+    grid-column: span 2;
+  }
+
+
+  /* PHOTO VIEWER */
+
+  .photo-viewer {
+    padding: 15px;
+  }
+
+  .photo-viewer-content img {
+    max-width: 96vw;
+
+    max-height: 78vh;
+  }
+
+  .photo-viewer-content p {
+    font-size: 0.9rem;
+  }
+
+  .photo-close {
+    top: 12px;
+
+    right: 15px;
+  }
+
+  .zoom-icon {
+    opacity: 1;
+
+    transform: scale(0.9);
+
+    width: 34px;
+    height: 34px;
+  }
+
+
+  /* RSVP */
+
+  .rsvp-card {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+
+  /* FOOTER */
+
+  footer {
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+}
+
+/* =========================================
+   SCROLL REVEAL ANIMATIONS
+========================================= */
+
+/* Default state before appearing */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+}
+
+/* Visible state */
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+  animation: heroFade 1.4s ease both;
+}
+
+@keyframes heroFade {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* =========================================
+   HER STORY
+========================================= */
+
+.story-image.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+.story-image.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.story-copy.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+.story-copy.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* =========================================
+   EVENT CARDS
+========================================= */
+
+.event-card.reveal {
+  transform: translateY(50px);
+}
+
+.event-card.reveal.visible {
+  transform: translateY(0);
+}
+
+
+/* =========================================
+   GALLERY
+========================================= */
+
+.gallery-item.reveal {
+  opacity: 0;
+  transform: translateY(35px) scale(0.97);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.gallery-item.reveal.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+
+/* =========================================
+   GODPARENTS
+========================================= */
+
+.godparent-group.reveal {
+  opacity: 0;
+  transform: translateY(45px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.godparent-group.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================================
+   STAGGERED ANIMATIONS
+========================================= */
+
+.reveal-delay-1 {
+  transition-delay: 0.12s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.24s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.36s;
+}
+
+.reveal-delay-4 {
+  transition-delay: 0.48s;
+}
+
+.reveal-delay-5 {
+  transition-delay: 0.60s;
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .reveal,
+  .story-image.reveal-left,
+  .story-copy.reveal-right,
+  .gallery-item.reveal,
+  .godparent-group.reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero {
+    animation: none;
+  }
+
+}
