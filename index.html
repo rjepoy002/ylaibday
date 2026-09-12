@@ -1,40 +1,229 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Ylai — One Year of Love & Joy</title>
-<link rel="icon" type="image/png" href="public/photos/duck-logo.png">
+  <meta charset="utf-8">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  >
 
-<link
-  href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
-  rel="stylesheet"
->
+  <title>
+    Ylai — One Year of Love & Joy
+  </title>
 
-<link rel="stylesheet" href="style.css">
+  <!-- FAVICON -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="public/photos/duck-logo.png"
+  >
+
+  <!-- GOOGLE FONTS -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- STYLESHEET -->
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
 </head>
+
 
 <body>
 
+<script>
+  /*
+   * Always start the page at the very top
+   * after a reload / fresh page load.
+   */
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+
+  window.addEventListener("beforeunload", function () {
+    window.scrollTo(0, 0);
+  });
+
+  window.addEventListener("load", function () {
+    window.scrollTo(0, 0);
+  });
+</script>
+
+<!-- =========================================
+     YLAI LOADING / SPLASH SCREEN
+========================================= -->
+
+<div
+  id="ylaiLoader"
+  class="ylai-loader"
+  aria-label="Loading Ylai's celebration"
+>
+
+  <div class="ylai-loader-content">
+
+    <p class="ylai-loader-name">
+      Ylai
+    </p>
+
+    <p class="ylai-loader-fullname">
+      Yla Jazielle
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================
+     SPLASH SCREEN CONTROL
+========================================= -->
+
+<script>
+
+  (function () {
+
+    const loader =
+      document.getElementById("ylaiLoader");
+
+    if (!loader) return;
+
+
+    let hidden = false;
+
+
+    /*
+     * Lock page scrolling while splash is visible
+     */
+    document.body.style.overflow = "hidden";
+
+
+    function hideYlaiLoader() {
+
+      if (hidden) return;
+
+      hidden = true;
+
+
+      loader.classList.add(
+        "is-hidden"
+      );
+
+
+      /*
+       * Restore normal page scrolling
+       * after the splash fades out.
+       */
+      setTimeout(
+        function () {
+
+          document.body.style.overflow = "";
+
+          loader.remove();
+
+        },
+        1000
+      );
+
+    }
+
+
+    /*
+     * Keep splash visible for 2.5 seconds
+     * after the page has finished loading.
+     */
+    window.addEventListener(
+      "load",
+      function () {
+
+        setTimeout(
+          hideYlaiLoader,
+          3500
+        );
+
+      }
+    );
+
+
+    /*
+     * Safety fallback
+     */
+    setTimeout(
+      hideYlaiLoader,
+      6000
+    );
+
+  })();
+
+</script>
+
+
+
+<!-- =========================================
+     NAVIGATION
+========================================= -->
+
 <header class="nav">
 
-  <a href="#home" class="brand">
-    <img src="public/photos/duck-logo.png" alt="Ylai duck logo">
-    <span>YLai</span>
+  <a
+    href="#home"
+    class="brand"
+  >
+
+    <img
+      src="public/photos/duck-logo.png"
+      alt="Ylai duck logo"
+    >
+
+    <span>
+      YLai
+    </span>
+
   </a>
 
+
   <nav>
-    <a href="#story">Her Story</a>
-    <a href="#event">The Day</a>
-    <a href="#gallery">Gallery</a>
-    <a class="nav-rsvp" href="#rsvp">RSVP</a>
+
+    <a href="#story">
+      Her Story
+    </a>
+
+    <a href="#event">
+      The Day
+    </a>
+
+    <a href="#gallery">
+      Gallery
+    </a>
+
+    <a
+      class="nav-rsvp"
+      href="#rsvp"
+    >
+      RSVP
+    </a>
+
   </nav>
 
 </header>
+
 
 
 <main>
@@ -44,55 +233,95 @@
      HERO
 ========================================= -->
 
-<section id="home" class="hero">
+<section
+  id="home"
+  class="hero"
+>
+
 
   <div class="hero-copy">
+
 
     <p class="eyebrow">
       A little celebration of a big milestone
     </p>
 
+
     <h1 class="hero-title">
-        <span>One year of</span>
-        <span>love &amp; joy.</span>
+
+      <span>
+        One year of
+      </span>
+
+      <span>
+        love &amp; joy.
+      </span>
+
     </h1>
+
 
     <p class="name">
       Yla Jazielle B. Padrones
     </p>
+
 
     <p class="lead">
       Please join us as we celebrate Ylai's first birthday
       and christening.
     </p>
 
+
     <div class="hero-meta">
-      <span>NOVEMBER 7, 2026</span>
+
+      <span>
+        NOVEMBER 7, 2026
+      </span>
+
       <i></i>
-      <span>10:00 AM</span>
+
+      <span>
+        10:00 AM
+      </span>
+
     </div>
 
-    <a class="button" href="#rsvp">
+
+    <a
+      class="button"
+      href="#rsvp"
+    >
       Confirm Attendance
     </a>
+
 
   </div>
 
 
+
   <div class="hero-photo">
+
 
     <img
       src="public/photos/hero.jpg"
       alt="Ylai smiling in a yellow duck outfit"
     >
 
+
     <div class="badge">
+
       01
+
       <br>
-      <small>YEAR</small>
+
+      <small>
+        YEAR
+      </small>
+
     </div>
 
+
   </div>
+
 
 </section>
 
@@ -104,33 +333,72 @@
 
 <section class="countdown-wrap reveal">
 
+
   <p class="eyebrow">
     Counting down to Ylai's special day
   </p>
 
-  <div id="countdown" class="countdown">
+
+  <div
+    id="countdown"
+    class="countdown"
+  >
+
 
     <div>
-      <strong>--</strong>
-      <span>Days</span>
+
+      <strong>
+        --
+      </strong>
+
+      <span>
+        Days
+      </span>
+
     </div>
 
-    <div>
-      <strong>--</strong>
-      <span>Hours</span>
-    </div>
 
     <div>
-      <strong>--</strong>
-      <span>Minutes</span>
+
+      <strong>
+        --
+      </strong>
+
+      <span>
+        Hours
+      </span>
+
     </div>
 
+
     <div>
-      <strong>--</strong>
-      <span>Seconds</span>
+
+      <strong>
+        --
+      </strong>
+
+      <span>
+        Minutes
+      </span>
+
     </div>
+
+
+    <div>
+
+      <strong>
+        --
+      </strong>
+
+      <span>
+        Seconds
+      </span>
+
+    </div>
+
 
   </div>
+
 
 </section>
 
@@ -140,63 +408,94 @@
      HER STORY
 ========================================= -->
 
-<section id="story" class="section story">
+<section
+  id="story"
+  class="section story"
+>
+
 
   <div class="section-heading">
+
 
     <p class="eyebrow">
       Her first chapter
     </p>
 
+
     <h2>
       A year of little moments.
     </h2>
 
+
   </div>
+
 
 
   <div class="story-grid">
 
+
     <div class="story-image reveal-left">
+
 
       <img
         src="public/photos/newborn.jpg"
         alt="Ylai as a newborn"
       >
 
+
     </div>
+
 
 
     <div class="story-copy reveal-right">
 
-    <p class="story-intro">
-        <span class="dropcap">O</span>ne beautiful year ago, our world became a little brighter.
+
+      <p class="story-intro">
+
+        <span class="dropcap">
+          O
+        </span>
+
+        ne beautiful year ago, our world became a little brighter.
+
         <br>
+
         On November 7, 2025, Yla Jazielle B. Padrones came into
         our lives and became our little Ylai.
-    </p>
 
-    <p>
+      </p>
+
+
+
+      <p>
+
         From her first days to her sweetest smiles, every little
         moment has become a memory we treasure. Now, as she turns
         one, we are grateful to celebrate this beautiful milestone
         with family and friends.
-    </p>
 
-    <div class="signature">
+      </p>
+
+
+
+      <div class="signature">
 
         With love,
+
         <br>
 
         <strong>
-        Papay and Mamay
+          Papay and Mamay
         </strong>
 
-    </div>
+      </div>
+
 
     </div>
+
 
   </div>
+
 
 </section>
 
@@ -206,24 +505,35 @@
      EVENT
 ========================================= -->
 
-<section id="event" class="section event">
+<section
+  id="event"
+  class="section event"
+>
+
 
   <div class="section-heading centered">
+
 
     <p class="eyebrow">
       Save the date
     </p>
 
+
     <h2>
       The celebration
     </h2>
 
+
     <p class="section-note">
+
       Tentative schedule — details may be updated as
       the celebration gets closer.
+
     </p>
 
+
   </div>
+
 
 
   <div class="event-grid">
@@ -233,59 +543,75 @@
 
     <article class="event-card reveal reveal-delay-1">
 
+
       <span class="event-number">
         01
       </span>
+
 
       <h3>
         Christening
       </h3>
 
+
       <p>
         Sta. Monica Parish Church
       </p>
+
 
       <strong>
         10:00 AM
       </strong>
 
+
       <small>
-        Christening & Orientation
+        Christening &amp; Orientation
       </small>
 
+
     </article>
+
 
 
     <!-- BIRTHDAY -->
 
     <article class="event-card featured reveal reveal-delay-2">
 
+
       <span class="event-number">
         02
       </span>
+
 
       <h3>
         Birthday Celebration
       </h3>
 
+
       <p>
         Yvonne's Nest
       </p>
+
 
       <strong>
         12:00 PM onwards
       </strong>
 
+
       <small>
         Reception after the christening
       </small>
 
+
     </article>
+
 
   </div>
 
 
+
   <div class="details reveal">
+
 
     <div>
 
@@ -307,7 +633,7 @@
       </span>
 
       <strong>
-        Roer Jay & April Padrones
+        Roer Jay &amp; April Padrones
       </strong>
 
     </div>
@@ -325,7 +651,9 @@
 
     </div>
 
+
   </div>
+
 
 </section>
 
@@ -335,19 +663,27 @@
      GALLERY
 ========================================= -->
 
-<section id="gallery" class="section gallery">
+<section
+  id="gallery"
+  class="section gallery"
+>
+
 
   <div class="section-heading reveal">
+
 
     <p class="eyebrow">
       A year in photos
     </p>
 
+
     <h2>
       Growing up, one frame at a time.
     </h2>
 
+
   </div>
+
 
 
   <div class="gallery-grid">
@@ -355,9 +691,12 @@
 
     <!-- PHOTO 1 -->
 
-    <figure class="gallery-item tall reveal reveal-delay-1">
+    <figure
+      class="gallery-item tall reveal reveal-delay-1"
+    >
 
       <button
+        type="button"
         class="gallery-button"
         onclick="openPhoto(
           'public/photos/hero.jpg',
@@ -377,9 +716,11 @@
 
       </button>
 
+
       <figcaption>
         Little Ducky, big smiles.
       </figcaption>
+
 
     </figure>
 
@@ -387,9 +728,12 @@
 
     <!-- PHOTO 2 -->
 
-    <figure class="gallery-item reveal reveal-delay-2">
+    <figure
+      class="gallery-item reveal reveal-delay-2"
+    >
 
       <button
+        type="button"
         class="gallery-button"
         onclick="openPhoto(
           'public/photos/baby-pink.jpg',
@@ -409,9 +753,11 @@
 
       </button>
 
+
       <figcaption>
         Sweet little moments.
       </figcaption>
+
 
     </figure>
 
@@ -419,9 +765,12 @@
 
     <!-- PHOTO 3 -->
 
-    <figure class="gallery-item reveal reveal-delay-3">
+    <figure
+      class="gallery-item reveal reveal-delay-3"
+    >
 
       <button
+        type="button"
         class="gallery-button"
         onclick="openPhoto(
           'public/photos/wings.jpg',
@@ -441,9 +790,11 @@
 
       </button>
 
+
       <figcaption>
         Our little angel.
       </figcaption>
+
 
     </figure>
 
@@ -451,9 +802,12 @@
 
     <!-- PHOTO 4 -->
 
-    <figure class="gallery-item wide reveal reveal-delay-4">
+    <figure
+      class="gallery-item wide reveal reveal-delay-4"
+    >
 
       <button
+        type="button"
         class="gallery-button"
         onclick="openPhoto(
           'public/photos/newborn.jpg',
@@ -473,15 +827,218 @@
 
       </button>
 
+
       <figcaption>
         Where her story began.
       </figcaption>
 
+
     </figure>
+
+
+
+    <!-- PHOTO 5 -->
+
+    <figure
+      class="gallery-item reveal reveal-delay-5"
+    >
+
+      <button
+        type="button"
+        class="gallery-button"
+        onclick="openPhoto(
+          'public/photos/ylai-garden-01.jpg',
+          'A little sunshine and a lot of smiles.'
+        )"
+        aria-label="View Ylai smiling in the garden"
+      >
+
+        <img
+          src="public/photos/ylai-garden-01.jpg"
+          alt="Ylai smiling in the garden"
+          loading="lazy"
+        >
+
+        <span
+          class="zoom-icon"
+          aria-hidden="true"
+        >
+          +
+        </span>
+
+      </button>
+
+
+      <figcaption>
+        A little sunshine and a lot of smiles.
+      </figcaption>
+
+
+    </figure>
+
+
+
+    <!-- PHOTO 6 -->
+
+    <figure
+      class="gallery-item reveal reveal-delay-5"
+    >
+
+      <button
+        type="button"
+        class="gallery-button"
+        onclick="openPhoto(
+          'public/photos/ylai-garden-02.jpg',
+          'Little Ylai enjoying a beautiful day.'
+        )"
+        aria-label="View Ylai sitting in the garden"
+      >
+
+        <img
+          src="public/photos/ylai-garden-02.jpg"
+          alt="Ylai sitting in the garden"
+          loading="lazy"
+        >
+
+        <span
+          class="zoom-icon"
+          aria-hidden="true"
+        >
+          +
+        </span>
+
+      </button>
+
+
+      <figcaption>
+        Little Ylai enjoying a beautiful day.
+      </figcaption>
+
+
+    </figure>
+
 
   </div>
 
+
+
+  <!-- =========================================
+       GALLERY UPLOAD
+  ========================================= -->
+
+  <div class="gallery-upload reveal">
+
+    <h3>
+      Share a memory
+    </h3>
+
+    <p>
+      Have a special photo with Ylai?
+      Share it with us and add it to her birthday gallery.
+    </p>
+
+
+    <input
+      id="galleryFileInput"
+      class="gallery-upload-input"
+      type="file"
+      accept="image/jpeg,image/png,image/webp"
+      multiple
+    >
+
+
+    <label
+      for="galleryFileInput"
+      class="button gallery-upload-button"
+    >
+      + Choose Photos
+    </label>
+
+
+    <!-- PREVIEW -->
+
+    <div
+      id="galleryPreview"
+      class="gallery-preview"
+    ></div>
+
+
+    <!-- ACTIONS -->
+
+    <div class="gallery-upload-actions">
+
+      <button
+        id="galleryUploadButton"
+        type="button"
+        class="button"
+        disabled
+      >
+        Upload Photos
+      </button>
+
+      <button
+        id="galleryClearButton"
+        type="button"
+        class="button"
+        hidden
+      >
+        Clear
+      </button>
+
+    </div>
+
+
+    <!-- STATUS -->
+
+    <div
+      id="galleryUploadStatus"
+      class="gallery-upload-status"
+      aria-live="polite"
+    ></div>
+
+
+  </div>
+
+
+
+  <!-- =========================================
+       UPLOADED PHOTOS
+  ========================================= -->
+
+  <div class="uploaded-gallery">
+
+    <div class="uploaded-gallery-heading">
+
+      <p class="eyebrow">
+        Shared memories
+      </p>
+
+      <h3>
+        Photos from family &amp; friends
+      </h3>
+
+    </div>
+
+
+    <div
+      id="uploadedGalleryGrid"
+      class="uploaded-gallery-grid"
+    ></div>
+
+
+    <div
+      id="galleryEmpty"
+      class="gallery-empty"
+      hidden
+    >
+      No shared photos yet.
+    </div>
+
+  </div>
+
+
 </section>
+
 
 
 <!-- =========================================
@@ -496,6 +1053,7 @@
 
 
   <button
+    type="button"
     class="photo-close"
     onclick="closePhoto()"
     aria-label="Close photo"
@@ -509,15 +1067,19 @@
     onclick="event.stopPropagation()"
   >
 
+
     <img
       id="viewerImage"
       src=""
       alt=""
     >
 
+
     <p id="viewerCaption"></p>
 
+
   </div>
+
 
 </div>
 
@@ -529,63 +1091,118 @@
 
 <section class="section godparents">
 
+
   <div class="section-heading centered">
+
 
     <p class="eyebrow">
       A special part of her journey
     </p>
 
+
     <h2>
       Godparents
     </h2>
 
+
     <p class="section-note">
-      The people who will lovingly guide and support Ylai as she grows.
+
+      The people who will lovingly guide and support
+      Ylai as she grows.
+
     </p>
+
 
   </div>
 
 
+
   <div class="godparent-grid">
+
 
     <!-- NINONG -->
 
-    <div class="godparent-group reveal reveal-delay-1">
+    <div
+      class="godparent-group reveal reveal-delay-1"
+    >
+
 
       <p class="eyebrow">
         Ninong
       </p>
 
+
       <ol>
-        <li>Janrey Mayor</li>
-        <li>John Stoney Domingo</li>
-        <li>Leobert Cabanting</li>
-        <li>Patrick Jacalne</li>
-        <li>Ralph Teleron</li>
+
+        <li>
+          Janrey Mayor
+        </li>
+
+        <li>
+          John Stoney Domingo
+        </li>
+
+        <li>
+          Leobert Cabanting
+        </li>
+
+        <li>
+          Patrick Jacalne
+        </li>
+
+        <li>
+          Ralph Teleron
+        </li>
+
       </ol>
+
 
     </div>
 
 
+
     <!-- NINANG -->
 
-    <div class="godparent-group reveal reveal-delay-2">
+    <div
+      class="godparent-group reveal reveal-delay-2"
+    >
+
 
       <p class="eyebrow">
         Ninang
       </p>
 
+
       <ol>
-        <li>Berenice Bundac</li>
-        <li>Dinah Joy Bungar</li>
-        <li>Hazel Batuhan</li>
-        <li>Kaye Abegail Bucao</li>
-        <li>Kyle Allyza Alvarez</li>
+
+        <li>
+          Berenice Bundac
+        </li>
+
+        <li>
+          Dinah Joy Bungar
+        </li>
+
+        <li>
+          Hazel Batuhan
+        </li>
+
+        <li>
+          Kaye Abegail Bucao
+        </li>
+
+        <li>
+          Kyle Allyza Alvarez
+        </li>
+
       </ol>
+
 
     </div>
 
+
   </div>
+
 
 </section>
 
@@ -595,33 +1212,48 @@
      RSVP
 ========================================= -->
 
-<section id="rsvp" class="section rsvp reveal">
+<section
+  id="rsvp"
+  class="section rsvp reveal"
+>
+
 
   <div class="rsvp-card">
 
 
+    <!-- RSVP INTRO -->
+
     <div>
+
 
       <p class="eyebrow">
         We hope you can be there
       </p>
 
+
       <h2>
         Will you celebrate with us?
       </h2>
 
+
       <p>
+
         Please confirm your attendance so we can
         prepare a place for you.
+
       </p>
+
 
     </div>
 
 
+
+    <!-- RSVP FORM -->
+
     <form id="rsvpForm">
 
 
-      <!-- NINONG / NINANG NAME -->
+      <!-- NAME -->
 
       <label>
 
@@ -629,37 +1261,13 @@
 
         <input
           id="guestName"
+          type="text"
           required
           placeholder="Your full name"
         >
 
       </label>
 
-
-      <!-- COMPANION -->
-
-      <label>
-
-        Companion
-
-        <select id="companion" required>
-
-          <option value="0">
-            No companion
-          </option>
-
-          <option value="1">
-            1 companion
-          </option>
-
-        </select>
-
-        <small class="form-note">
-          Each Ninong and Ninang may bring only 1 companion,
-          whether adult or child.
-        </small>
-
-      </label>
 
 
       <!-- ATTENDANCE -->
@@ -668,7 +1276,10 @@
 
         Attendance
 
-        <select id="attendance">
+        <select
+          id="attendance"
+          required
+        >
 
           <option value="confirmed">
             Yes, I'll be there
@@ -683,6 +1294,44 @@
       </label>
 
 
+
+      <!-- COMPANION -->
+
+      <label>
+
+        Companion
+
+        <select
+          id="companion"
+          required
+        >
+
+          <option value="0">
+            No companion
+          </option>
+
+          <option value="1">
+            1 companion
+          </option>
+
+        </select>
+
+
+        <small
+          id="companionNote"
+          class="form-note"
+        >
+
+          Each Ninong and Ninang may bring only 1 companion,
+          whether adult or child.
+
+        </small>
+
+
+      </label>
+
+
+
       <!-- MESSAGE -->
 
       <label>
@@ -693,13 +1342,16 @@
           optional
         </span>
 
+
         <textarea
           id="message"
           rows="3"
           placeholder="A short message for Ylai"
         ></textarea>
 
+
       </label>
+
 
 
       <!-- SUBMIT -->
@@ -715,32 +1367,93 @@
     </form>
 
 
-    <!-- SUCCESS -->
+  </div>
 
-    <div
-      id="rsvpSuccess"
-      class="success"
-      hidden
+
+</section>
+
+
+
+<!-- =========================================
+     RSVP CONFIRMATION MODAL
+========================================= -->
+
+<div
+  id="rsvpModal"
+  class="rsvp-modal"
+  hidden
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="rsvpModalTitle"
+>
+
+
+  <div class="rsvp-modal-box">
+
+
+    <!-- CLOSE -->
+
+    <button
+      type="button"
+      class="rsvp-modal-close"
+      onclick="closeRSVPModal()"
+      aria-label="Close confirmation"
     >
+      ×
+    </button>
 
-      <div class="success-icon">
-        ✓
-      </div>
 
-      <h3>
-        Thank you!
-      </h3>
 
-      <p>
-        Your response has been recorded.
-      </p>
+    <!-- SUCCESS ICON -->
 
+    <div class="success-icon">
+      ✓
     </div>
+
+
+
+    <!-- EYEBROW -->
+
+    <p class="eyebrow">
+      RSVP Received
+    </p>
+
+
+
+    <!-- TITLE -->
+
+    <h2 id="rsvpModalTitle">
+      Thank you!
+    </h2>
+
+
+
+    <!-- MESSAGE -->
+
+    <p>
+
+      Your response has been recorded.
+      We look forward to celebrating Ylai's special day with you.
+
+    </p>
+
+
+
+    <!-- DONE -->
+
+    <button
+      type="button"
+      class="button"
+      onclick="closeRSVPModal()"
+    >
+      Done
+    </button>
 
 
   </div>
 
-</section>
+
+</div>
 
 
 
@@ -750,21 +1463,1173 @@
 
 <footer>
 
-  <p>
-    <strong>YLai</strong>
-    · 1st Birthday & Christening
-    · November 7, 2026
-  </p>
 
   <p>
-    With love from Papay & Mamay.
+
+    <strong>
+      YLai
+    </strong>
+
+    · 1st Birthday &amp; Christening
+    · November 7, 2026
+
   </p>
+
+
+  <p>
+    With love from Papay &amp; Mamay.
+  </p>
+
 
 </footer>
 
 
 
+<!-- =========================================
+     SUPABASE
+========================================= -->
+
+<script
+  src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+></script>
+
+
+
+<!-- =========================================
+     SUPABASE CONFIG
+========================================= -->
+
+<script>
+
+  /*
+   * ==========================================
+   * SUPABASE CONFIGURATION
+   * ==========================================
+   *
+   * Replace YOUR_SUPABASE_ANON_KEY with the
+   * same anon/publishable key you are already
+   * using for this project.
+   *
+   */
+
+  const GALLERY_SUPABASE_URL =
+    "https://liajjeatukvkjzolorrq.supabase.co";
+
+  const GALLERY_SUPABASE_ANON_KEY =
+    "sb_publishable_VvJ0ElfDbH4jtbP8BbLXiQ_LDHvRUEi";
+
+
+  /*
+   * Create Supabase client
+   */
+
+  const gallerySupabase =
+    window.supabase.createClient(
+      GALLERY_SUPABASE_URL,
+      GALLERY_SUPABASE_ANON_KEY
+    );
+
+
+  /*
+   * Make available to script.js if needed
+   */
+
+  window.gallerySupabase = gallerySupabase;
+
+</script>
+
+
+
+<!-- =========================================
+     RSVP COMPANION LOGIC
+========================================= -->
+
+<script>
+
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const attendance =
+      document.getElementById("attendance");
+
+    const companion =
+      document.getElementById("companion");
+
+    const companionNote =
+      document.getElementById("companionNote");
+
+
+    function updateCompanionState() {
+
+      if (attendance.value === "declined") {
+
+        // Disable companion selection
+        companion.disabled = true;
+
+        // Reset companion to no companion
+        companion.value = "0";
+
+        // Hide the explanatory note
+        if (companionNote) {
+          companionNote.style.opacity = "0.5";
+        }
+
+      } else {
+
+        // Enable companion selection
+        companion.disabled = false;
+
+        // Restore explanatory note
+        if (companionNote) {
+          companionNote.style.opacity = "1";
+        }
+
+      }
+
+    }
+
+
+    // Run once when the page loads
+    updateCompanionState();
+
+
+    // Run whenever attendance changes
+    attendance.addEventListener(
+      "change",
+      updateCompanionState
+    );
+
+  });
+
+</script>
+
+
+
+<!-- =========================================
+     GALLERY UPLOAD LOGIC
+========================================= -->
+
+<script>
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+      const fileInput =
+        document.getElementById(
+          "galleryFileInput"
+        );
+
+
+      const preview =
+        document.getElementById(
+          "galleryPreview"
+        );
+
+
+      const uploadButton =
+        document.getElementById(
+          "galleryUploadButton"
+        );
+
+
+      const clearButton =
+        document.getElementById(
+          "galleryClearButton"
+        );
+
+
+      const status =
+        document.getElementById(
+          "galleryUploadStatus"
+        );
+
+
+      const uploadedGrid =
+        document.getElementById(
+          "uploadedGalleryGrid"
+        );
+
+
+      const galleryEmpty =
+        document.getElementById(
+          "galleryEmpty"
+        );
+
+
+      let selectedFiles = [];
+
+
+      /*
+       * ========================================
+       * SETTINGS
+       * ========================================
+       */
+
+      const MAX_FILES_PER_SELECTION = 20;
+
+      const MAX_FILE_SIZE = 5 * 1024 * 1024;
+
+      const MAX_IMAGE_WIDTH = 2200;
+
+      const JPEG_QUALITY = 0.82;
+
+
+      /*
+       * ========================================
+       * STATUS
+       * ========================================
+       */
+
+      function setStatus(
+        message,
+        type = ""
+      ) {
+
+        status.textContent = message;
+
+        status.className =
+          "gallery-upload-status " + type;
+
+      }
+
+
+      /*
+       * ========================================
+       * FORMAT FILE SIZE
+       * ========================================
+       */
+
+      function formatFileSize(bytes) {
+
+        if (bytes < 1024) {
+          return bytes + " B";
+        }
+
+        if (bytes < 1024 * 1024) {
+          return (
+            (bytes / 1024).toFixed(1) +
+            " KB"
+          );
+        }
+
+        return (
+          (bytes / (1024 * 1024)).toFixed(1) +
+          " MB"
+        );
+
+      }
+
+
+      /*
+       * ========================================
+       * FILE SELECTION
+       * ========================================
+       */
+
+      fileInput.addEventListener(
+        "change",
+        function () {
+
+          const files =
+            Array.from(
+              fileInput.files || []
+            );
+
+
+          if (!files.length) {
+            return;
+          }
+
+
+          const remainingSlots =
+            MAX_FILES_PER_SELECTION -
+            selectedFiles.length;
+
+
+          if (remainingSlots <= 0) {
+
+            setStatus(
+              "You can select up to " +
+              MAX_FILES_PER_SELECTION +
+              " photos at a time.",
+              "error"
+            );
+
+            fileInput.value = "";
+
+            return;
+          }
+
+
+          const filesToAdd =
+            files.slice(
+              0,
+              remainingSlots
+            );
+
+
+          let rejected = 0;
+
+
+          filesToAdd.forEach(
+            function (file) {
+
+              const validType =
+                [
+                  "image/jpeg",
+                  "image/png",
+                  "image/webp"
+                ].includes(
+                  file.type
+                );
+
+
+              if (!validType) {
+                rejected++;
+                return;
+              }
+
+
+              if (
+                file.size >
+                MAX_FILE_SIZE
+              ) {
+                rejected++;
+                return;
+              }
+
+
+              selectedFiles.push(file);
+
+            }
+          );
+
+
+          fileInput.value = "";
+
+
+          renderPreview();
+
+
+          if (selectedFiles.length) {
+
+            uploadButton.disabled = false;
+
+            clearButton.hidden = false;
+
+            let message =
+              selectedFiles.length +
+              " photo";
+
+            if (
+              selectedFiles.length !== 1
+            ) {
+              message += "s";
+            }
+
+            message += " selected";
+
+
+            if (rejected) {
+
+              message +=
+                ". " +
+                rejected +
+                " file(s) skipped.";
+
+            }
+
+
+            setStatus(message);
+
+          } else {
+
+            uploadButton.disabled = true;
+
+            clearButton.hidden = true;
+
+            setStatus(
+              "No valid photos selected.",
+              "error"
+            );
+
+          }
+
+        }
+      );
+
+
+      /*
+       * ========================================
+       * RENDER PREVIEW
+       * ========================================
+       */
+
+      function renderPreview() {
+
+        preview.innerHTML = "";
+
+
+        selectedFiles.forEach(
+          function (file, index) {
+
+            const wrapper =
+              document.createElement(
+                "div"
+              );
+
+            wrapper.className =
+              "gallery-preview-item";
+
+
+            const image =
+              document.createElement(
+                "img"
+              );
+
+            image.alt =
+              file.name;
+
+
+            const reader =
+              new FileReader();
+
+
+            reader.onload =
+              function (event) {
+
+                image.src =
+                  event.target.result;
+
+              };
+
+
+            reader.readAsDataURL(file);
+
+
+            const removeButton =
+              document.createElement(
+                "button"
+              );
+
+            removeButton.type =
+              "button";
+
+            removeButton.className =
+              "gallery-preview-remove";
+
+            removeButton.innerHTML =
+              "×";
+
+            removeButton.setAttribute(
+              "aria-label",
+              "Remove " + file.name
+            );
+
+
+            removeButton.addEventListener(
+              "click",
+              function () {
+
+                selectedFiles.splice(
+                  index,
+                  1
+                );
+
+                renderPreview();
+
+
+                if (
+                  selectedFiles.length === 0
+                ) {
+
+                  uploadButton.disabled =
+                    true;
+
+                  clearButton.hidden =
+                    true;
+
+                  setStatus("");
+
+                }
+
+              }
+            );
+
+
+            wrapper.appendChild(image);
+
+            wrapper.appendChild(
+              removeButton
+            );
+
+            preview.appendChild(
+              wrapper
+            );
+
+          }
+        );
+
+      }
+
+
+      /*
+       * ========================================
+       * CLEAR SELECTION
+       * ========================================
+       */
+
+      clearButton.addEventListener(
+        "click",
+        function () {
+
+          selectedFiles = [];
+
+          fileInput.value = "";
+
+          preview.innerHTML = "";
+
+          uploadButton.disabled = true;
+
+          clearButton.hidden = true;
+
+          setStatus("");
+
+        }
+      );
+
+
+      /*
+       * ========================================
+       * COMPRESS IMAGE
+       * ========================================
+       */
+
+      async function compressImage(file) {
+
+        return new Promise(
+          function (resolve, reject) {
+
+            const reader =
+              new FileReader();
+
+
+            reader.onerror =
+              function () {
+
+                reject(
+                  new Error(
+                    "Could not read image."
+                  )
+                );
+
+              };
+
+
+            reader.onload =
+              function (event) {
+
+                const image =
+                  new Image();
+
+
+                image.onerror =
+                  function () {
+
+                    reject(
+                      new Error(
+                        "Could not process image."
+                      )
+                    );
+
+                  };
+
+
+                image.onload =
+                  function () {
+
+                    let width =
+                      image.width;
+
+                    let height =
+                      image.height;
+
+
+                    /*
+                     * Resize only when necessary
+                     */
+
+                    if (
+                      width >
+                      MAX_IMAGE_WIDTH
+                    ) {
+
+                      const ratio =
+                        MAX_IMAGE_WIDTH /
+                        width;
+
+                      width =
+                        MAX_IMAGE_WIDTH;
+
+                      height =
+                        Math.round(
+                          height * ratio
+                        );
+
+                    }
+
+
+                    const canvas =
+                      document.createElement(
+                        "canvas"
+                      );
+
+
+                    canvas.width =
+                      width;
+
+                    canvas.height =
+                      height;
+
+
+                    const context =
+                      canvas.getContext(
+                        "2d"
+                      );
+
+
+                    context.drawImage(
+                      image,
+                      0,
+                      0,
+                      width,
+                      height
+                    );
+
+
+                    canvas.toBlob(
+                      function (blob) {
+
+                        if (!blob) {
+
+                          reject(
+                            new Error(
+                              "Image compression failed."
+                            )
+                          );
+
+                          return;
+
+                        }
+
+
+                        resolve(blob);
+
+                      },
+                      "image/jpeg",
+                      JPEG_QUALITY
+                    );
+
+                  };
+
+
+                image.src =
+                  event.target.result;
+
+              };
+
+
+            reader.readAsDataURL(file);
+
+          }
+        );
+
+      }
+
+
+      /*
+       * ========================================
+       * CREATE SAFE FILE NAME
+       * ========================================
+       */
+
+      function createFileName() {
+
+        const timestamp =
+          Date.now();
+
+        const random =
+          Math.random()
+            .toString(36)
+            .substring(2, 10);
+
+
+        return (
+          "ylai_" +
+          timestamp +
+          "_" +
+          random +
+          ".jpg"
+        );
+
+      }
+
+
+      /*
+       * ========================================
+       * UPLOAD PHOTOS
+       * ========================================
+       */
+
+      uploadButton.addEventListener(
+        "click",
+        async function () {
+
+
+          if (
+            !selectedFiles.length
+          ) {
+            return;
+          }
+
+
+          uploadButton.disabled =
+            true;
+
+          clearButton.disabled =
+            true;
+
+
+          const total =
+            selectedFiles.length;
+
+
+          let successful =
+            0;
+
+
+          let failed =
+            0;
+
+
+          setStatus(
+            "Preparing photos..."
+          );
+
+
+          for (
+            let i = 0;
+            i < selectedFiles.length;
+            i++
+          ) {
+
+
+            const originalFile =
+              selectedFiles[i];
+
+
+            try {
+
+
+              setStatus(
+                "Preparing photo " +
+                (i + 1) +
+                " of " +
+                total +
+                "..."
+              );
+
+
+              const compressedBlob =
+                await compressImage(
+                  originalFile
+                );
+
+
+              const fileName =
+                createFileName();
+
+
+              const storagePath =
+                "photos/" +
+                fileName;
+
+
+              setStatus(
+                "Uploading photo " +
+                (i + 1) +
+                " of " +
+                total +
+                "..."
+              );
+
+
+              /*
+               * Upload to Supabase Storage
+               */
+
+              const {
+                error: uploadError
+              } =
+                await gallerySupabase
+                  .storage
+                  .from("gallery")
+                  .upload(
+                    storagePath,
+                    compressedBlob,
+                    {
+                      contentType:
+                        "image/jpeg",
+
+                      cacheControl:
+                        "31536000",
+
+                      upsert:
+                        false
+                    }
+                  );
+
+
+              if (uploadError) {
+                throw uploadError;
+              }
+
+
+              /*
+               * Save metadata to database
+               */
+
+              const {
+                error: databaseError
+              } =
+                await gallerySupabase
+                  .from(
+                    "gallery_photos"
+                  )
+                  .insert({
+
+                    file_name:
+                      originalFile.name,
+
+                    storage_path:
+                      storagePath,
+
+                    caption:
+                      "A special memory with Ylai",
+
+                    uploaded_by:
+                      "Guest",
+
+                    approved:
+                      true
+
+                  });
+
+
+              if (databaseError) {
+
+
+                /*
+                 * If database insert fails,
+                 * remove the uploaded file
+                 * so we don't leave orphan files.
+                 */
+
+                await gallerySupabase
+                  .storage
+                  .from("gallery")
+                  .remove([
+                    storagePath
+                  ]);
+
+
+                throw databaseError;
+
+              }
+
+
+              successful++;
+
+
+            } catch (error) {
+
+              console.error(
+                "Gallery upload error:",
+                error
+              );
+
+              failed++;
+
+            }
+
+          }
+
+
+          /*
+           * ==================================
+           * UPLOAD COMPLETE
+           * ==================================
+           */
+
+          selectedFiles = [];
+
+          fileInput.value = "";
+
+          preview.innerHTML = "";
+
+          clearButton.hidden =
+            true;
+
+          clearButton.disabled =
+            false;
+
+          uploadButton.disabled =
+            true;
+
+
+          if (failed === 0) {
+
+            setStatus(
+              successful +
+              " photo" +
+              (
+                successful !== 1
+                  ? "s"
+                  : ""
+              ) +
+              " uploaded successfully.",
+              "success"
+            );
+
+          } else {
+
+            setStatus(
+              successful +
+              " uploaded, " +
+              failed +
+              " failed.",
+              "error"
+            );
+
+          }
+
+
+          /*
+           * Refresh gallery
+           */
+
+          await loadUploadedGallery();
+
+        }
+      );
+
+
+      /*
+       * ========================================
+       * LOAD UPLOADED GALLERY
+       * ========================================
+       */
+
+      async function loadUploadedGallery() {
+
+        uploadedGrid.innerHTML = "";
+
+
+        const {
+          data,
+          error
+        } =
+          await gallerySupabase
+            .from(
+              "gallery_photos"
+            )
+            .select(
+              "id,file_name,storage_path,caption,created_at"
+            )
+            .eq(
+              "approved",
+              true
+            )
+            .order(
+              "created_at",
+              {
+                ascending: false
+              }
+            );
+
+
+        if (error) {
+
+          console.error(
+            "Gallery loading error:",
+            error
+          );
+
+          galleryEmpty.hidden =
+            false;
+
+          galleryEmpty.textContent =
+            "Unable to load shared photos.";
+
+          return;
+
+        }
+
+
+        if (
+          !data ||
+          data.length === 0
+        ) {
+
+          galleryEmpty.hidden =
+            false;
+
+          return;
+
+        }
+
+
+        galleryEmpty.hidden =
+          true;
+
+
+        data.forEach(
+          function (photo) {
+
+
+            /*
+             * Public bucket URL
+             */
+
+            const {
+              data: publicUrlData
+            } =
+              gallerySupabase
+                .storage
+                .from("gallery")
+                .getPublicUrl(
+                  photo.storage_path
+                );
+
+
+            const imageUrl =
+              publicUrlData.publicUrl;
+
+
+            const figure =
+              document.createElement(
+                "figure"
+              );
+
+            figure.className =
+              "uploaded-gallery-item";
+
+
+            const button =
+              document.createElement(
+                "button"
+              );
+
+            button.type =
+              "button";
+
+
+            button.setAttribute(
+              "aria-label",
+              "View shared photo"
+            );
+
+
+            button.addEventListener(
+              "click",
+              function () {
+
+                openPhoto(
+                  imageUrl,
+                  photo.caption ||
+                  "A special memory with Ylai."
+                );
+
+              }
+            );
+
+
+            const image =
+              document.createElement(
+                "img"
+              );
+
+            image.src =
+              imageUrl;
+
+            image.alt =
+              photo.caption ||
+              "Shared photo with Ylai";
+
+            image.loading =
+              "lazy";
+
+
+            const zoomIcon =
+              document.createElement(
+                "span"
+              );
+
+            zoomIcon.className =
+              "zoom-icon";
+
+            zoomIcon.textContent =
+              "+";
+
+
+            button.appendChild(
+              image
+            );
+
+            button.appendChild(
+              zoomIcon
+            );
+
+
+            figure.appendChild(
+              button
+            );
+
+
+            uploadedGrid.appendChild(
+              figure
+            );
+
+          }
+        );
+
+      }
+
+
+      /*
+       * ========================================
+       * INITIAL LOAD
+       * ========================================
+       */
+
+      loadUploadedGallery();
+
+
+    }
+  );
+
+</script>
+
+
+
+<!-- =========================================
+     MAIN JAVASCRIPT
+========================================= -->
+
 <script src="script.js"></script>
 
+
 </body>
+
 </html>

@@ -42,19 +42,175 @@ a {
 }
 
 /* =========================================
+   PREVENT HORIZONTAL PAGE OVERFLOW
+========================================= */
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* =========================================
+   YLAI LOADING / SPLASH SCREEN
+========================================= */
+
+.ylai-loader {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 99999;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  /*
+   * Fully opaque background.
+   * This prevents the actual website from
+   * showing through while the splash is active.
+   */
+  background: #fcf8f3;
+
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+
+  /*
+   * Matches the 1-second fade-out
+   * used by index.html.
+   */
+  transition:
+    opacity 1s ease,
+    visibility 1s ease;
+}
+
+
+.ylai-loader.is-hidden {
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   SPLASH CONTENT
+========================================= */
+
+.ylai-loader-content {
+  text-align: center;
+
+  animation:
+    ylaiLoaderReveal
+    1.4s
+    cubic-bezier(.22, 1, .36, 1)
+    both;
+}
+
+
+.ylai-loader-name {
+  margin: 0;
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size:
+    clamp(64px, 12vw, 110px);
+
+  line-height: 0.95;
+
+  font-weight: 500;
+
+  letter-spacing: 0.04em;
+
+  color: var(--ink);
+}
+
+
+.ylai-loader-fullname {
+  margin: 16px 0 0;
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size: 13px;
+
+  letter-spacing: 0.28em;
+
+  text-transform: uppercase;
+
+  color: var(--muted);
+
+  opacity: 0.75;
+}
+
+
+/* =========================================
+   SPLASH ANIMATION
+========================================= */
+
+@keyframes ylaiLoaderReveal {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(14px)
+      scale(0.98);
+
+    filter: blur(4px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+    filter: blur(0);
+  }
+
+}
+
+/* =========================================
    YLAI DUCK LOGO
-   ========================================= */
+========================================= */
 
 .brand {
   display: inline-flex;
+
   align-items: center;
+
   gap: 9px;
 }
 
 .brand img {
   width: 38px;
   height: 38px;
+
   object-fit: contain;
+
   flex-shrink: 0;
 }
 
@@ -63,6 +219,7 @@ a {
 }
 
 @media (max-width: 700px) {
+
   .brand img {
     width: 32px;
     height: 32px;
@@ -71,7 +228,9 @@ a {
   .brand {
     gap: 7px;
   }
+
 }
+
 
 /* =========================================
    NAVIGATION
@@ -79,19 +238,26 @@ a {
 
 .nav {
   position: sticky;
+
   top: 0;
+
   z-index: 20;
 
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
 
   padding: 18px 5vw;
 
-  background: rgba(252, 248, 243, 0.92);
+  background:
+    rgba(252, 248, 243, 0.92);
+
   backdrop-filter: blur(12px);
 
-  border-bottom: 1px solid var(--line);
+  border-bottom:
+    1px solid var(--line);
 }
 
 .brand {
@@ -100,7 +266,9 @@ a {
 
 .nav nav {
   display: flex;
+
   gap: 26px;
+
   align-items: center;
 
   font-size: 0.85rem;
@@ -124,10 +292,13 @@ a {
 ========================================= */
 
 .hero {
-  min-height: calc(100vh - 68px);
+  min-height:
+    calc(100vh - 68px);
 
   display: grid;
-  grid-template-columns: 1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
 
   gap: 7vw;
 
@@ -142,16 +313,19 @@ a {
 
 .eyebrow {
   text-transform: uppercase;
+
   letter-spacing: 0.18em;
 
   font-size: 0.68rem;
+
   color: var(--accent);
 
   font-weight: 600;
 }
 
 .hero h1 {
-  font-size: clamp(3.8rem, 7vw, 7.2rem);
+  font-size:
+    clamp(3.8rem, 7vw, 7.2rem);
 
   line-height: 0.96;
 
@@ -178,6 +352,7 @@ a {
 
 .hero-meta {
   display: flex;
+
   gap: 15px;
 
   align-items: center;
@@ -193,6 +368,7 @@ a {
 
 .hero-meta i {
   width: 4px;
+
   height: 4px;
 
   background: var(--pink);
@@ -224,20 +400,24 @@ a {
   display: block;
 
   width: 100%;
+
   height: 610px;
 
   object-fit: cover;
 
-  border-radius: 180px 180px 8px 8px;
+  border-radius:
+    180px 180px 8px 8px;
 }
 
 .badge {
   position: absolute;
 
   right: -22px;
+
   bottom: 24px;
 
   width: 105px;
+
   height: 105px;
 
   border-radius: 50%;
@@ -247,20 +427,24 @@ a {
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   flex-direction: column;
 
   font: 2rem "Playfair Display";
 
-  box-shadow: 0 12px 35px #00000018;
+  box-shadow:
+    0 12px 35px #00000018;
 }
 
 .badge small {
-  font: 600 0.55rem "DM Sans";
+  font:
+    600 0.55rem "DM Sans";
 
   letter-spacing: 0.15em;
 }
+
 
 /* =========================================
    HERO TITLE
@@ -270,18 +454,11 @@ a {
   overflow: visible;
 
   margin: 20px 0 25px;
+
   padding: 0 0 18px;
 
-  /*
-   * Give the large serif letters enough
-   * vertical space so J and other
-   * lower strokes are never clipped.
-   */
   line-height: 0.96;
 }
-
-
-/* Each line */
 
 .hero-title span {
   display: block;
@@ -299,15 +476,9 @@ a {
     forwards;
 }
 
-
-/* First line */
-
 .hero-title span:first-child {
   animation-delay: 0.35s;
 }
-
-
-/* Second line */
 
 .hero-title span:last-child {
   animation-delay: 0.65s;
@@ -322,18 +493,23 @@ a {
 
   0% {
     opacity: 0;
+
     transform: translateY(45px);
+
     filter: blur(6px);
   }
 
   60% {
     opacity: 0.8;
+
     filter: blur(2px);
   }
 
   100% {
     opacity: 1;
+
     transform: translateY(0);
+
     filter: blur(0);
   }
 
@@ -345,23 +521,48 @@ a {
 ========================================= */
 
 .hero .eyebrow {
-  animation: heroFadeUp 0.9s ease 0.1s both;
+  animation:
+    heroFadeUp
+    0.9s
+    ease
+    0.1s
+    both;
 }
 
 .hero .hero-name {
-  animation: heroFadeUp 0.9s ease 0.9s both;
+  animation:
+    heroFadeUp
+    0.9s
+    ease
+    0.9s
+    both;
 }
 
 .hero .hero-description {
-  animation: heroFadeUp 0.9s ease 1.05s both;
+  animation:
+    heroFadeUp
+    0.9s
+    ease
+    1.05s
+    both;
 }
 
 .hero .hero-meta {
-  animation: heroFadeUp 0.9s ease 1.2s both;
+  animation:
+    heroFadeUp
+    0.9s
+    ease
+    1.2s
+    both;
 }
 
 .hero .hero-actions {
-  animation: heroFadeUp 0.9s ease 1.35s both;
+  animation:
+    heroFadeUp
+    0.9s
+    ease
+    1.35s
+    both;
 }
 
 
@@ -373,11 +574,13 @@ a {
 
   from {
     opacity: 0;
+
     transform: translateY(18px);
   }
 
   to {
     opacity: 1;
+
     transform: translateY(0);
   }
 
@@ -392,6 +595,7 @@ a {
 
   .hero-title {
     line-height: 0.94;
+
     padding-bottom: 14px;
   }
 
@@ -410,6 +614,7 @@ a {
   .hero .hero-description,
   .hero .hero-meta,
   .hero .hero-actions {
+
     animation: none;
 
     opacity: 1;
@@ -419,7 +624,12 @@ a {
     filter: none;
   }
 
+  .ylai-loader-content {
+    animation: none;
+  }
+
 }
+
 
 /* =========================================
    COUNTDOWN
@@ -430,7 +640,8 @@ a {
 
   text-align: center;
 
-  border-block: 1px solid var(--line);
+  border-block:
+    1px solid var(--line);
 }
 
 .countdown {
@@ -438,7 +649,8 @@ a {
 
   justify-content: center;
 
-  gap: clamp(25px, 6vw, 80px);
+  gap:
+    clamp(25px, 6vw, 80px);
 
   margin: 28px 0 8px;
 }
@@ -454,7 +666,8 @@ a {
 }
 
 .countdown strong {
-  font: 500 clamp(2rem, 4vw, 3.4rem)
+  font:
+    500 clamp(2rem, 4vw, 3.4rem)
     "Playfair Display";
 }
 
@@ -484,7 +697,8 @@ a {
 }
 
 .section-heading h2 {
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-size:
+    clamp(2.5rem, 5vw, 4.5rem);
 
   line-height: 1;
 
@@ -512,8 +726,12 @@ a {
 
 .story-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   gap: 8vw;
+
   align-items: center;
 }
 
@@ -523,47 +741,61 @@ a {
 
 .story-image img {
   width: 100%;
+
   height: 100%;
+
   object-fit: cover;
 }
 
 .story-copy {
   max-width: 500px;
+
   color: var(--muted);
+
   line-height: 1.9;
 }
 
-/* Normal story paragraphs */
 .story-copy > p:not(.dropcap) {
   margin-bottom: 24px;
 }
 
 .story-intro {
   margin-bottom: 24px;
+
   line-height: 1.9;
 }
 
-/* Decorative O */
 .dropcap {
   display: inline-block;
 
   margin-right: 8px;
+
   vertical-align: baseline;
 
-  font-family: Georgia, "Times New Roman", serif;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
   font-size: 5.5rem;
+
   font-weight: 400;
+
   line-height: 0;
 
   color: var(--ink);
 }
 
-/* Signature */
 .signature {
   margin-top: 40px;
+
   color: var(--ink);
-  font: 1.05rem/1.5 "Playfair Display";
+
+  font:
+    1.05rem/1.5
+    "Playfair Display";
 }
+
 
 /* =========================================
    EVENT
@@ -576,7 +808,8 @@ a {
 .event-grid {
   display: grid;
 
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns:
+    1fr 1fr;
 
   gap: 18px;
 
@@ -648,15 +881,18 @@ a {
 
   display: grid;
 
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns:
+    repeat(3, 1fr);
 
-  border-top: 1px solid var(--line);
+  border-top:
+    1px solid var(--line);
 }
 
 .details div {
   padding: 25px 20px;
 
-  border-right: 1px solid var(--line);
+  border-right:
+    1px solid var(--line);
 }
 
 .details div:last-child {
@@ -689,7 +925,8 @@ a {
 .gallery-grid {
   display: grid;
 
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns:
+    repeat(3, 1fr);
 
   grid-auto-rows: 260px;
 
@@ -725,6 +962,7 @@ a {
   display: block;
 
   width: 100%;
+
   height: 100%;
 
   padding: 0;
@@ -740,6 +978,7 @@ a {
 
 .gallery-button img {
   width: 100%;
+
   height: 100%;
 
   object-fit: cover;
@@ -763,9 +1002,11 @@ a {
   position: absolute;
 
   top: 15px;
+
   right: 15px;
 
   width: 38px;
+
   height: 38px;
 
   display: grid;
@@ -774,7 +1015,8 @@ a {
 
   border-radius: 50%;
 
-  background: rgba(255, 255, 255, 0.88);
+  background:
+    rgba(255, 255, 255, 0.88);
 
   color: var(--ink);
 
@@ -808,13 +1050,16 @@ a {
   bottom: 0;
 
   left: 0;
+
   right: 0;
 
   padding: 35px 15px 13px;
 
   color: white;
 
-  font: 0.72rem "DM Sans";
+  font:
+    0.72rem
+    "DM Sans";
 
   background:
     linear-gradient(
@@ -823,6 +1068,279 @@ a {
     );
 
   pointer-events: none;
+}
+
+
+/* =========================================
+   GALLERY UPLOAD
+========================================= */
+
+.gallery-upload {
+  margin-top: 50px;
+
+  padding: 30px;
+
+  border:
+    1px solid
+    rgba(0, 0, 0, 0.10);
+
+  border-radius: 20px;
+
+  text-align: center;
+
+  background:
+    rgba(255, 255, 255, 0.55);
+}
+
+.gallery-upload h3 {
+  margin: 0 0 8px;
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size: 28px;
+
+  font-weight: 500;
+}
+
+.gallery-upload p {
+  margin: 0 auto 22px;
+
+  max-width: 600px;
+
+  opacity: 0.75;
+}
+
+.gallery-upload-input {
+  display: none;
+}
+
+.gallery-upload-button {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  cursor: pointer;
+}
+
+.gallery-preview {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fill,
+      minmax(120px, 1fr)
+    );
+
+  gap: 12px;
+
+  margin-top: 25px;
+
+  text-align: left;
+}
+
+.gallery-preview-item {
+  position: relative;
+
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+
+  border-radius: 12px;
+
+  background: #eee;
+}
+
+.gallery-preview-item img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+.gallery-preview-remove {
+  position: absolute;
+
+  top: 6px;
+
+  right: 6px;
+
+  width: 28px;
+
+  height: 28px;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background:
+    rgba(0, 0, 0, 0.7);
+
+  color: #fff;
+
+  font-size: 18px;
+
+  line-height: 28px;
+
+  padding: 0;
+
+  cursor: pointer;
+}
+
+.gallery-upload-actions {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 22px;
+}
+
+.gallery-upload-status {
+  min-height: 24px;
+
+  margin-top: 18px;
+
+  font-size: 14px;
+
+  opacity: 0.8;
+}
+
+.gallery-upload-status.success {
+  opacity: 1;
+}
+
+.gallery-upload-status.error {
+  opacity: 1;
+}
+
+
+/* =========================================
+   UPLOADED GALLERY
+========================================= */
+
+.uploaded-gallery {
+  margin-top: 60px;
+}
+
+.uploaded-gallery-heading {
+  text-align: center;
+
+  margin-bottom: 30px;
+}
+
+.uploaded-gallery-heading h3 {
+  margin-bottom: 8px;
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size: 30px;
+
+  font-weight: 500;
+}
+
+.uploaded-gallery-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 18px;
+}
+
+.uploaded-gallery-item {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 14px;
+
+  min-height: 220px;
+}
+
+.uploaded-gallery-item button {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.uploaded-gallery-item img {
+  display: block;
+
+  width: 100%;
+
+  height: 280px;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.35s ease;
+}
+
+.uploaded-gallery-item button:hover img {
+  transform: scale(1.03);
+}
+
+.uploaded-gallery-item .zoom-icon {
+  position: absolute;
+
+  right: 12px;
+
+  bottom: 12px;
+
+  width: 34px;
+
+  height: 34px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.9);
+
+  color: #222;
+
+  font-size: 22px;
+
+  pointer-events: none;
+}
+
+.gallery-empty {
+  text-align: center;
+
+  padding: 30px;
+
+  opacity: 0.65;
 }
 
 
@@ -840,11 +1358,13 @@ a {
   display: none;
 
   align-items: center;
+
   justify-content: center;
 
   padding: 30px;
 
-  background: rgba(20, 18, 16, 0.94);
+  background:
+    rgba(20, 18, 16, 0.94);
 
   opacity: 0;
 
@@ -858,11 +1378,6 @@ a {
   opacity: 1;
 }
 
-
-/* -----------------------------------------
-   VIEWER CONTENT
------------------------------------------ */
-
 .photo-viewer-content {
   max-width: 1200px;
 
@@ -874,7 +1389,9 @@ a {
 
   align-items: center;
 
-  animation: photoZoom 0.3s ease;
+  animation:
+    photoZoom
+    0.3s ease;
 }
 
 .photo-viewer-content img {
@@ -885,12 +1402,14 @@ a {
   max-height: 82vh;
 
   width: auto;
+
   height: auto;
 
   object-fit: contain;
 
   box-shadow:
-    0 20px 70px rgba(0, 0, 0, 0.4);
+    0 20px 70px
+    rgba(0, 0, 0, 0.4);
 }
 
 .photo-viewer-content p {
@@ -898,32 +1417,32 @@ a {
 
   color: white;
 
-  font: 1rem "Playfair Display";
+  font:
+    1rem
+    "Playfair Display";
 
   text-align: center;
 }
-
-
-/* -----------------------------------------
-   CLOSE BUTTON
------------------------------------------ */
 
 .photo-close {
   position: fixed;
 
   top: 22px;
+
   right: 28px;
 
   z-index: 10000;
 
   width: 45px;
+
   height: 45px;
 
   border: 0;
 
   border-radius: 50%;
 
-  background: rgba(255, 255, 255, 0.12);
+  background:
+    rgba(255, 255, 255, 0.12);
 
   color: white;
 
@@ -940,13 +1459,9 @@ a {
 }
 
 .photo-close:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background:
+    rgba(255, 255, 255, 0.25);
 }
-
-
-/* -----------------------------------------
-   LIGHTBOX ANIMATION
------------------------------------------ */
 
 @keyframes photoZoom {
 
@@ -971,6 +1486,7 @@ a {
 
 .godparents {
   padding-top: 110px;
+
   padding-bottom: 120px;
 }
 
@@ -980,6 +1496,7 @@ a {
 
 .godparents .section-note {
   max-width: 520px;
+
   margin: 12px auto 0;
 }
 
@@ -990,10 +1507,14 @@ a {
 
 .godparent-grid {
   width: min(900px, 90%);
+
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
   gap: 32px;
 }
 
@@ -1007,14 +1528,18 @@ a {
 
   padding: 42px 48px;
 
-  background: rgba(255, 253, 250, 0.7);
+  background:
+    rgba(255, 253, 250, 0.7);
 
-  border: 1px solid var(--line);
+  border:
+    1px solid
+    var(--line);
 
   border-radius: 4px;
 
   box-shadow:
-    0 12px 35px rgba(41, 38, 34, 0.05);
+    0 12px 35px
+    rgba(41, 38, 34, 0.05);
 
   text-align: left;
 
@@ -1027,7 +1552,8 @@ a {
   transform: translateY(-4px);
 
   box-shadow:
-    0 18px 45px rgba(41, 38, 34, 0.09);
+    0 18px 45px
+    rgba(41, 38, 34, 0.09);
 }
 
 
@@ -1043,16 +1569,13 @@ a {
   color: var(--accent);
 
   font-size: 0.72rem;
+
   font-weight: 600;
 
   letter-spacing: 0.22em;
+
   text-transform: uppercase;
 }
-
-
-/* =========================================
-   DECORATIVE LINE
-========================================= */
 
 .godparent-group .eyebrow::after {
   content: "";
@@ -1060,6 +1583,7 @@ a {
   display: block;
 
   width: 36px;
+
   height: 1px;
 
   margin: 12px auto 0;
@@ -1076,6 +1600,7 @@ a {
 
 .godparent-group ol {
   margin: 0;
+
   padding: 0;
 
   list-style: none;
@@ -1083,32 +1608,28 @@ a {
   counter-reset: godparent;
 }
 
-
-/* =========================================
-   EACH NAME
-========================================= */
-
 .godparent-group li {
   counter-increment: godparent;
 
   position: relative;
 
   display: flex;
+
   align-items: center;
 
   min-height: 48px;
 
-  padding: 10px 0 10px 42px;
+  padding:
+    10px 0 10px 42px;
 
-  border-bottom: 1px solid var(--line);
+  border-bottom:
+    1px solid
+    var(--line);
 
   color: var(--ink);
 
   font-size: 0.98rem;
 }
-
-
-/* Remove line from last name */
 
 .godparent-group li:last-child {
   border-bottom: none;
@@ -1120,37 +1641,46 @@ a {
 ========================================= */
 
 .godparent-group li::before {
-  content: counter(godparent);
+  content:
+    counter(godparent);
 
   position: absolute;
+
   left: 0;
 
   width: 27px;
+
   height: 27px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
-  border: 1px solid rgba(169, 139, 97, 0.45);
+  border:
+    1px solid
+    rgba(169, 139, 97, 0.45);
 
   border-radius: 50%;
 
   color: var(--accent);
 
   font-family: inherit;
+
   font-size: 0.7rem;
 }
 
 
 /* =========================================
-   MOBILE
+   GODPARENTS MOBILE
 ========================================= */
 
 @media (max-width: 700px) {
 
   .godparents {
     padding-top: 80px;
+
     padding-bottom: 80px;
   }
 
@@ -1192,17 +1722,20 @@ a {
 
   background: var(--white);
 
-  padding: clamp(30px, 6vw, 70px);
+  padding:
+    clamp(30px, 6vw, 70px);
 
   display: grid;
 
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns:
+    0.9fr 1.1fr;
 
   gap: 7vw;
 }
 
 .rsvp-card h2 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size:
+    clamp(2.5rem, 5vw, 4rem);
 
   line-height: 1;
 }
@@ -1236,13 +1769,17 @@ textarea {
 
   padding: 13px 12px;
 
-  border: 1px solid var(--line);
+  border:
+    1px solid
+    var(--line);
 
   background: var(--paper);
 
   color: var(--ink);
 
-  font: 0.85rem "DM Sans";
+  font:
+    0.85rem
+    "DM Sans";
 
   outline: 0;
 }
@@ -1256,7 +1793,8 @@ textarea:focus {
 .form-row {
   display: grid;
 
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns:
+    1fr 1fr;
 
   gap: 12px;
 }
@@ -1275,11 +1813,13 @@ textarea:focus {
 
 .success-icon {
   width: 54px;
+
   height: 54px;
 
   border-radius: 50%;
 
-  margin: auto auto 18px;
+  margin:
+    auto auto 18px;
 
   display: grid;
 
@@ -1298,7 +1838,9 @@ textarea:focus {
 footer {
   padding: 45px 9vw;
 
-  border-top: 1px solid var(--line);
+  border-top:
+    1px solid
+    var(--line);
 
   display: flex;
 
@@ -1382,7 +1924,8 @@ footer {
     border-right: 0;
 
     border-bottom:
-      1px solid var(--line);
+      1px solid
+      var(--line);
 
     padding-left: 0;
   }
@@ -1391,13 +1934,45 @@ footer {
   /* GALLERY */
 
   .gallery-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+      1fr 1fr;
 
     grid-auto-rows: 190px;
   }
 
   .gallery-item.wide {
     grid-column: span 2;
+  }
+
+
+  /* UPLOADED GALLERY */
+
+  .gallery-upload {
+    padding: 24px 18px;
+
+    margin-top: 35px;
+  }
+
+  .gallery-upload h3 {
+    font-size: 24px;
+  }
+
+  .uploaded-gallery-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 10px;
+  }
+
+  .uploaded-gallery-item img {
+    height: 190px;
+  }
+
+  .gallery-preview {
+    grid-template-columns:
+      repeat(3, 1fr);
+
+    gap: 8px;
   }
 
 
@@ -1429,6 +2004,7 @@ footer {
     transform: scale(0.9);
 
     width: 34px;
+
     height: 34px;
   }
 
@@ -1452,22 +2028,24 @@ footer {
 
 }
 
+
 /* =========================================
    SCROLL REVEAL ANIMATIONS
 ========================================= */
 
-/* Default state before appearing */
 .reveal {
   opacity: 0;
+
   transform: translateY(40px);
+
   transition:
     opacity 0.9s ease,
     transform 0.9s ease;
 }
 
-/* Visible state */
 .reveal.visible {
   opacity: 1;
+
   transform: translateY(0);
 }
 
@@ -1477,19 +2055,27 @@ footer {
 ========================================= */
 
 .hero {
-  animation: heroFade 1.4s ease both;
+  animation:
+    heroFade
+    1.4s
+    ease
+    both;
 }
 
 @keyframes heroFade {
+
   from {
     opacity: 0;
+
     transform: scale(1.02);
   }
 
   to {
     opacity: 1;
+
     transform: scale(1);
   }
+
 }
 
 
@@ -1499,7 +2085,9 @@ footer {
 
 .story-image.reveal-left {
   opacity: 0;
+
   transform: translateX(-60px);
+
   transition:
     opacity 1s ease,
     transform 1s ease;
@@ -1507,12 +2095,15 @@ footer {
 
 .story-image.reveal-left.visible {
   opacity: 1;
+
   transform: translateX(0);
 }
 
 .story-copy.reveal-right {
   opacity: 0;
+
   transform: translateX(60px);
+
   transition:
     opacity 1s ease,
     transform 1s ease;
@@ -1520,6 +2111,7 @@ footer {
 
 .story-copy.reveal-right.visible {
   opacity: 1;
+
   transform: translateX(0);
 }
 
@@ -1543,7 +2135,10 @@ footer {
 
 .gallery-item.reveal {
   opacity: 0;
-  transform: translateY(35px) scale(0.97);
+
+  transform:
+    translateY(35px)
+    scale(0.97);
 
   transition:
     opacity 0.8s ease,
@@ -1552,7 +2147,10 @@ footer {
 
 .gallery-item.reveal.visible {
   opacity: 1;
-  transform: translateY(0) scale(1);
+
+  transform:
+    translateY(0)
+    scale(1);
 }
 
 
@@ -1562,6 +2160,7 @@ footer {
 
 .godparent-group.reveal {
   opacity: 0;
+
   transform: translateY(45px);
 
   transition:
@@ -1571,6 +2170,7 @@ footer {
 
 .godparent-group.reveal.visible {
   opacity: 1;
+
   transform: translateY(0);
 }
 
@@ -1611,8 +2211,11 @@ footer {
   .story-copy.reveal-right,
   .gallery-item.reveal,
   .godparent-group.reveal {
+
     opacity: 1;
+
     transform: none;
+
     transition: none;
   }
 
@@ -1621,3 +2224,107 @@ footer {
   }
 
 }
+
+
+/* =========================================
+   RSVP CONFIRMATION MODAL
+========================================= */
+
+.rsvp-modal {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9998;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 24px;
+
+  background:
+    rgba(41, 38, 34, 0.55);
+
+  backdrop-filter: blur(6px);
+
+  animation:
+    rsvpModalFade
+    0.25s
+    ease;
+}
+
+.rsvp-modal[hidden] {
+  display: none;
+}
+
+
+/* =========================================
+   MODAL BOX
+========================================= */
+
+.rsvp-modal-box {
+  position: relative;
+
+  width:
+    min(460px, 100%);
+
+  padding:
+    55px 40px 45px;
+
+  background: var(--white);
+
+  text-align: center;
+
+  box-shadow:
+    0 25px 80px
+    rgba(41, 38, 34, 0.2);
+
+  animation:
+    rsvpModalUp
+    0.35s
+    cubic-bezier(.22, 1, .36, 1);
+}
+
+
+/* =========================================
+   CLOSE BUTTON
+========================================= */
+
+.rsvp-modal-close {
+  position: absolute;
+
+  top: 15px;
+
+  right: 18px;
+
+  width: 36px;
+
+  height: 36px;
+
+  border: 0;
+
+  background: transparent;
+
+  color: var(--muted);
+
+  font-size: 1.8rem;
+
+  font-weight: 300;
+
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.rsvp-modal-close:hover {
+  color: var(--ink);
+}
+
+
+/* =========================================
+   SUCCESS ICON
+=====================
+```
