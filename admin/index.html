@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>YLai Admin</title>
+
+  <meta
+    name="theme-color"
+    content="#8b7355"
+  >
+
+  <link
+    rel="stylesheet"
+    href="admin.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================================
+       LOGIN SCREEN
+  ========================================== -->
+
+  <main
+    id="loginScreen"
+    class="screen"
+  >
+
+    <section class="login-card">
+
+
+      <!-- BRAND -->
+
+      <div class="brand-mark">
+        Y
+      </div>
+
+
+      <p class="eyebrow">
+        YLai
+      </p>
+
+
+      <h1>
+        Admin
+      </h1>
+
+
+      <p class="intro">
+        Connect your MetaMask wallet to manage
+        Ylai's birthday and christening gallery.
+      </p>
+
+
+      <!-- CONNECT -->
+
+      <button
+        id="connectButton"
+        class="primary-button"
+        type="button"
+      >
+
+        <span class="wallet-icon">
+          ◈
+        </span>
+
+        Connect MetaMask
+
+      </button>
+
+
+      <!-- STATUS -->
+
+      <p
+        id="loginStatus"
+        class="status"
+        aria-live="polite"
+      ></p>
+
+
+      <!-- SECURITY -->
+
+      <p class="security-note">
+
+        Only the authorized wallet can access
+        this administration area.
+
+      </p>
+
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =========================================
+       SUPABASE
+  ========================================== -->
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+  ></script>
+
+
+  <!-- =========================================
+       LOGIN JAVASCRIPT
+  ========================================== -->
+
+  <script src="login.js"></script>
+
+
+</body>
+
+</html>

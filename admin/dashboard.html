@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>YLai Admin Dashboard</title>
+
+  <meta
+    name="theme-color"
+    content="#8b7355"
+  >
+
+  <link
+    rel="stylesheet"
+    href="admin.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================================
+       ADMIN DASHBOARD
+  ========================================== -->
+
+  <main
+    id="dashboardScreen"
+    class="dashboard"
+  >
+
+
+    <!-- =======================================
+         HEADER
+    ======================================== -->
+
+    <header class="admin-header">
+
+
+      <!-- TITLE -->
+
+      <div>
+
+        <p class="eyebrow">
+          YLai
+        </p>
+
+        <h1>
+          Admin Dashboard
+        </h1>
+
+      </div>
+
+
+      <!-- HEADER ACTIONS -->
+
+      <div class="header-actions">
+
+
+        <!-- WALLET -->
+
+        <div
+          id="walletBadge"
+          class="wallet-badge"
+        >
+
+          <span class="wallet-dot"></span>
+
+          <span id="walletAddress">
+            Connected
+          </span>
+
+        </div>
+
+
+        <!-- LOGOUT -->
+
+        <button
+          id="disconnectButton"
+          class="secondary-button"
+          type="button"
+        >
+
+          Disconnect
+
+        </button>
+
+
+      </div>
+
+
+    </header>
+
+
+
+    <!-- =======================================
+         DASHBOARD CONTENT
+    ======================================== -->
+
+    <section class="dashboard-content">
+
+
+      <!-- =====================================
+           STATISTICS
+      ====================================== -->
+
+      <div class="stats-grid">
+
+
+        <!-- TOTAL -->
+
+        <article class="stat-card">
+
+          <span class="stat-label">
+            Total Photos
+          </span>
+
+          <strong id="totalPhotos">
+            —
+          </strong>
+
+        </article>
+
+
+        <!-- APPROVED -->
+
+        <article class="stat-card">
+
+          <span class="stat-label">
+            Approved
+          </span>
+
+          <strong id="approvedPhotos">
+            —
+          </strong>
+
+        </article>
+
+
+      </div>
+
+
+
+      <!-- =====================================
+           PHOTO MANAGEMENT
+      ====================================== -->
+
+      <section class="panel">
+
+
+        <!-- PANEL HEADER -->
+
+        <div class="panel-header">
+
+
+          <div>
+
+            <p class="eyebrow">
+              Gallery
+            </p>
+
+            <h2>
+              Photo Management
+            </h2>
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- STATUS -->
+
+        <p
+          id="galleryStatus"
+          class="status"
+          aria-live="polite"
+        ></p>
+
+
+
+        <!-- =================================
+             PHOTO GRID
+        ================================== -->
+
+        <div
+          id="photoGrid"
+          class="photo-grid"
+        ></div>
+
+
+
+        <!-- =================================
+             EMPTY STATE
+        ================================== -->
+
+        <div
+          id="emptyState"
+          class="empty-state"
+          hidden
+        >
+
+          <div class="empty-icon">
+            ♡
+          </div>
+
+          <h3>
+            No photos yet
+          </h3>
+
+          <p>
+            Photos uploaded by guests will appear
+            here.
+          </p>
+
+        </div>
+
+
+      </section>
+
+
+
+      <!-- =====================================
+           RSVP MANAGEMENT
+      ====================================== -->
+
+      <section class="panel rsvp-section">
+
+
+        <!-- PANEL HEADER -->
+
+        <div class="panel-header">
+
+
+          <div>
+
+            <p class="eyebrow">
+              Guests
+            </p>
+
+            <h2>
+              RSVP Management
+            </h2>
+
+            <p>
+              View guest responses and attendance details.
+            </p>
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- STATUS -->
+
+        <p
+          id="rsvpStatus"
+          class="status"
+          aria-live="polite"
+        ></p>
+
+
+
+        <!-- =================================
+             RSVP STATISTICS
+        ================================== -->
+
+        <div class="rsvp-stats">
+
+
+          <!-- TOTAL -->
+
+          <div class="rsvp-stat">
+
+            <span>
+              Total RSVPs
+            </span>
+
+            <strong id="totalRSVPs">
+              0
+            </strong>
+
+          </div>
+
+
+          <!-- ATTENDING -->
+
+          <div class="rsvp-stat">
+
+            <span>
+              Attending
+            </span>
+
+            <strong id="attendingRSVPs">
+              0
+            </strong>
+
+          </div>
+
+
+          <!-- NOT ATTENDING -->
+
+          <div class="rsvp-stat">
+
+            <span>
+              Can't Make It
+            </span>
+
+            <strong id="notAttendingRSVPs">
+              0
+            </strong>
+
+          </div>
+
+
+          <!-- COMPANIONS -->
+
+          <div class="rsvp-stat">
+
+            <span>
+              Total Companions
+            </span>
+
+            <strong id="totalCompanions">
+              0
+            </strong>
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- =================================
+             RSVP TABLE
+        ================================== -->
+
+        <div class="rsvp-table-wrapper">
+
+          <table class="rsvp-table">
+
+
+            <!-- TABLE HEADER -->
+
+            <thead>
+
+              <tr>
+
+                <th>
+                  Guest Name
+                </th>
+
+                <th>
+                  Companion
+                </th>
+
+                <th>
+                  Attendance
+                </th>
+
+                <th>
+                  Message
+                </th>
+
+                <th>
+                  Submitted
+                </th>
+
+              </tr>
+
+            </thead>
+
+
+            <!-- TABLE BODY -->
+
+            <tbody
+              id="rsvpTableBody"
+            ></tbody>
+
+
+          </table>
+
+        </div>
+
+
+      </section>
+
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =========================================
+       PHOTO VIEWER MODAL
+  ========================================== -->
+
+  <div
+    id="photoModal"
+    class="photo-modal"
+    hidden
+  >
+
+
+    <!-- CLOSE -->
+
+    <button
+      id="closePhotoModal"
+      class="modal-close"
+      type="button"
+      aria-label="Close photo"
+    >
+
+      ×
+
+    </button>
+
+
+
+    <!-- IMAGE -->
+
+    <div class="photo-modal-content">
+
+      <img
+        id="modalImage"
+        src=""
+        alt=""
+      >
+
+      <p id="modalCaption"></p>
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- =========================================
+       SUPABASE
+  ========================================== -->
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+  ></script>
+
+
+  <!-- =========================================
+       DASHBOARD JAVASCRIPT
+  ========================================== -->
+
+  <script src="dashboard.js"></script>
+
+
+</body>
+
+</html>

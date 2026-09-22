@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 
@@ -29,12 +30,13 @@
 
   <link
     rel="preconnect"
-    href="https://fonts.googleapis.com"
+    href="https://fonts.gstatic.com"
     crossorigin
   >
 
+  <!-- BOHO TYPOGRAPHY -->
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
     rel="stylesheet"
   >
 
@@ -47,7 +49,7 @@
 </head>
 
 
-<body>
+<body class="boho-theme">
 
 <script>
   /*
@@ -66,6 +68,7 @@
     window.scrollTo(0, 0);
   });
 </script>
+
 
 <!-- =========================================
      YLAI LOADING / SPLASH SCREEN
@@ -105,9 +108,7 @@
 
     if (!loader) return;
 
-
     let hidden = false;
-
 
     /*
      * Lock page scrolling while splash is visible
@@ -120,7 +121,6 @@
       if (hidden) return;
 
       hidden = true;
-
 
       loader.classList.add(
         "is-hidden"
@@ -146,7 +146,7 @@
 
 
     /*
-     * Keep splash visible for 2.5 seconds
+     * Keep splash visible for 3.5 seconds
      * after the page has finished loading.
      */
     window.addEventListener(
@@ -922,9 +922,9 @@
 
 
 
-  <!-- =========================================
-       GALLERY UPLOAD
-  ========================================= -->
+<!-- =========================================
+     GALLERY UPLOAD
+========================================= -->
 
   <div class="gallery-upload reveal">
 
@@ -955,15 +955,11 @@
     </label>
 
 
-    <!-- PREVIEW -->
-
     <div
       id="galleryPreview"
       class="gallery-preview"
     ></div>
 
-
-    <!-- ACTIONS -->
 
     <div class="gallery-upload-actions">
 
@@ -988,8 +984,6 @@
     </div>
 
 
-    <!-- STATUS -->
-
     <div
       id="galleryUploadStatus"
       class="gallery-upload-status"
@@ -1001,9 +995,9 @@
 
 
 
-  <!-- =========================================
-       UPLOADED PHOTOS
-  ========================================= -->
+<!-- =========================================
+     UPLOADED PHOTOS
+========================================= -->
 
   <div class="uploaded-gallery">
 
@@ -1221,8 +1215,6 @@
   <div class="rsvp-card">
 
 
-    <!-- RSVP INTRO -->
-
     <div>
 
 
@@ -1248,12 +1240,8 @@
 
 
 
-    <!-- RSVP FORM -->
-
     <form id="rsvpForm">
 
-
-      <!-- NAME -->
 
       <label>
 
@@ -1269,8 +1257,6 @@
       </label>
 
 
-
-      <!-- ATTENDANCE -->
 
       <label>
 
@@ -1294,8 +1280,6 @@
       </label>
 
 
-
-      <!-- COMPANION -->
 
       <label>
 
@@ -1332,8 +1316,6 @@
 
 
 
-      <!-- MESSAGE -->
-
       <label>
 
         Message
@@ -1353,8 +1335,6 @@
       </label>
 
 
-
-      <!-- SUBMIT -->
 
       <button
         class="button"
@@ -1391,8 +1371,6 @@
   <div class="rsvp-modal-box">
 
 
-    <!-- CLOSE -->
-
     <button
       type="button"
       class="rsvp-modal-close"
@@ -1404,15 +1382,11 @@
 
 
 
-    <!-- SUCCESS ICON -->
-
     <div class="success-icon">
       ✓
     </div>
 
 
-
-    <!-- EYEBROW -->
 
     <p class="eyebrow">
       RSVP Received
@@ -1420,15 +1394,11 @@
 
 
 
-    <!-- TITLE -->
-
     <h2 id="rsvpModalTitle">
       Thank you!
     </h2>
 
 
-
-    <!-- MESSAGE -->
 
     <p>
 
@@ -1438,8 +1408,6 @@
     </p>
 
 
-
-    <!-- DONE -->
 
     <button
       type="button"
@@ -1501,27 +1469,12 @@
 
 <script>
 
-  /*
-   * ==========================================
-   * SUPABASE CONFIGURATION
-   * ==========================================
-   *
-   * Replace YOUR_SUPABASE_ANON_KEY with the
-   * same anon/publishable key you are already
-   * using for this project.
-   *
-   */
-
   const GALLERY_SUPABASE_URL =
     "https://liajjeatukvkjzolorrq.supabase.co";
 
   const GALLERY_SUPABASE_ANON_KEY =
     "sb_publishable_VvJ0ElfDbH4jtbP8BbLXiQ_LDHvRUEi";
 
-
-  /*
-   * Create Supabase client
-   */
 
   const gallerySupabase =
     window.supabase.createClient(
@@ -1530,11 +1483,8 @@
     );
 
 
-  /*
-   * Make available to script.js if needed
-   */
-
-  window.gallerySupabase = gallerySupabase;
+  window.gallerySupabase =
+    gallerySupabase;
 
 </script>
 
@@ -1562,23 +1512,18 @@
 
       if (attendance.value === "declined") {
 
-        // Disable companion selection
         companion.disabled = true;
 
-        // Reset companion to no companion
         companion.value = "0";
 
-        // Hide the explanatory note
         if (companionNote) {
           companionNote.style.opacity = "0.5";
         }
 
       } else {
 
-        // Enable companion selection
         companion.disabled = false;
 
-        // Restore explanatory note
         if (companionNote) {
           companionNote.style.opacity = "1";
         }
@@ -1588,11 +1533,9 @@
     }
 
 
-    // Run once when the page loads
     updateCompanionState();
 
 
-    // Run whenever attendance changes
     attendance.addEventListener(
       "change",
       updateCompanionState
@@ -1690,33 +1633,6 @@
 
         status.className =
           "gallery-upload-status " + type;
-
-      }
-
-
-      /*
-       * ========================================
-       * FORMAT FILE SIZE
-       * ========================================
-       */
-
-      function formatFileSize(bytes) {
-
-        if (bytes < 1024) {
-          return bytes + " B";
-        }
-
-        if (bytes < 1024 * 1024) {
-          return (
-            (bytes / 1024).toFixed(1) +
-            " KB"
-          );
-        }
-
-        return (
-          (bytes / (1024 * 1024)).toFixed(1) +
-          " MB"
-        );
 
       }
 
@@ -2056,10 +1972,6 @@
                       image.height;
 
 
-                    /*
-                     * Resize only when necessary
-                     */
-
                     if (
                       width >
                       MAX_IMAGE_WIDTH
@@ -2265,10 +2177,6 @@
               );
 
 
-              /*
-               * Upload to Supabase Storage
-               */
-
               const {
                 error: uploadError
               } =
@@ -2295,10 +2203,6 @@
                 throw uploadError;
               }
 
-
-              /*
-               * Save metadata to database
-               */
 
               const {
                 error: databaseError
@@ -2329,20 +2233,12 @@
 
               if (databaseError) {
 
-
-                /*
-                 * If database insert fails,
-                 * remove the uploaded file
-                 * so we don't leave orphan files.
-                 */
-
                 await gallerySupabase
                   .storage
                   .from("gallery")
                   .remove([
                     storagePath
                   ]);
-
 
                 throw databaseError;
 
@@ -2365,12 +2261,6 @@
 
           }
 
-
-          /*
-           * ==================================
-           * UPLOAD COMPLETE
-           * ==================================
-           */
 
           selectedFiles = [];
 
@@ -2414,10 +2304,6 @@
 
           }
 
-
-          /*
-           * Refresh gallery
-           */
 
           await loadUploadedGallery();
 
@@ -2497,10 +2383,6 @@
         data.forEach(
           function (photo) {
 
-
-            /*
-             * Public bucket URL
-             */
 
             const {
               data: publicUrlData
