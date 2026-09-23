@@ -100,50 +100,6 @@ setInterval(
   1000
 );
 
-/* =========================================
-   YLAI LOADING / SPLASH SCREEN
-========================================= */
-
-(function () {
-
-  const loader =
-    document.getElementById("ylaiLoader");
-
-
-  if (!loader) {
-    return;
-  }
-
-
-  function hideLoader() {
-
-    loader.classList.add("is-hidden");
-
-  }
-
-
-  /*
-   * Wait until the page is fully loaded,
-   * then keep the Ylai screen visible
-   * for a short moment before fading out.
-   */
-
-  window.addEventListener(
-    "load",
-    function () {
-
-      setTimeout(
-        hideLoader,
-        1500
-      );
-
-    }
-  );
-
-
-})();
-
-
 // =========================================
 // PHOTO VIEWER / LIGHTBOX
 // =========================================

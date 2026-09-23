@@ -175,6 +175,15 @@
           </div>
 
 
+          <button
+            id="refreshGalleryButton"
+            class="secondary-button"
+            type="button"
+          >
+            Refresh photos
+          </button>
+
+
         </div>
 
 
@@ -197,6 +206,35 @@
           id="photoGrid"
           class="photo-grid"
         ></div>
+
+        <nav
+          id="galleryPagination"
+          class="gallery-pagination"
+          aria-label="Gallery pages"
+          hidden
+        >
+          <button
+            id="galleryPreviousPage"
+            class="pagination-button"
+            type="button"
+          >
+            Previous
+          </button>
+
+          <p
+            id="galleryPageInfo"
+            class="gallery-page-info"
+            aria-live="polite"
+          ></p>
+
+          <button
+            id="galleryNextPage"
+            class="pagination-button"
+            type="button"
+          >
+            Next
+          </button>
+        </nav>
 
 
 

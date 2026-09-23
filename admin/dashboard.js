@@ -73,6 +73,31 @@ const photoGrid =
     "photoGrid"
   );
 
+const refreshGalleryButton =
+  document.getElementById(
+    "refreshGalleryButton"
+  );
+
+const galleryPagination =
+  document.getElementById(
+    "galleryPagination"
+  );
+
+const galleryPreviousPage =
+  document.getElementById(
+    "galleryPreviousPage"
+  );
+
+const galleryNextPage =
+  document.getElementById(
+    "galleryNextPage"
+  );
+
+const galleryPageInfo =
+  document.getElementById(
+    "galleryPageInfo"
+  );
+
 const emptyState =
   document.getElementById(
     "emptyState"
@@ -149,6 +174,14 @@ let adminSessionToken = null;
 let rsvpAutoRefreshTimer = null;
 
 let galleryAutoRefreshTimer = null;
+
+const GALLERY_PAGE_SIZE = 12;
+
+let galleryPhotos = [];
+
+let currentGalleryPage = 1;
+
+let gallerySignature = "";
 
 
 /*
@@ -442,6 +475,129 @@ function redirectToLogin() {
 
 /*
  * =========================================
+ * GALLERY PAGINATION
+ * =========================================
+ */
+
+function renderGalleryPage() {
+
+  const pageCount =
+    Math.max(
+      1,
+      Math.ceil(
+        galleryPhotos.length /
+        GALLERY_PAGE_SIZE
+      )
+    );
+
+
+  currentGalleryPage =
+    Math.min(
+      Math.max(currentGalleryPage, 1),
+      pageCount
+    );
+
+
+  const start =
+    (currentGalleryPage - 1) *
+    GALLERY_PAGE_SIZE;
+
+
+  const pagePhotos =
+    galleryPhotos.slice(
+      start,
+      start + GALLERY_PAGE_SIZE
+    );
+
+
+  photoGrid.innerHTML =
+    "";
+
+
+  pagePhotos.forEach(
+    renderPhoto
+  );
+
+
+  galleryPagination.hidden =
+    galleryPhotos.length <=
+    GALLERY_PAGE_SIZE;
+
+
+  if (galleryPhotos.length) {
+
+    galleryPageInfo.textContent =
+      "Showing " +
+      (start + 1) +
+      "–" +
+      Math.min(
+        start + GALLERY_PAGE_SIZE,
+        galleryPhotos.length
+      ) +
+      " of " +
+      galleryPhotos.length;
+
+  }
+
+
+  galleryPreviousPage.disabled =
+    currentGalleryPage === 1;
+
+
+  galleryNextPage.disabled =
+    currentGalleryPage === pageCount;
+
+}
+
+
+function updateGallery(photos) {
+
+  const sortedPhotos =
+    [...photos].sort(
+      (first, second) =>
+        new Date(second.created_at) -
+        new Date(first.created_at)
+    );
+
+
+  const nextSignature =
+    sortedPhotos.map(
+      photo =>
+        photo.id +
+        ":" +
+        photo.created_at
+    ).join("|");
+
+
+  const galleryChanged =
+    gallerySignature !== "" &&
+    gallerySignature !== nextSignature;
+
+
+  gallerySignature =
+    nextSignature;
+
+  galleryPhotos =
+    sortedPhotos;
+
+
+  /*
+   * New uploads are sorted first, so return
+   * to the first page whenever the server list
+   * changes after a refresh.
+   */
+  if (galleryChanged) {
+    currentGalleryPage = 1;
+  }
+
+
+  renderGalleryPage();
+
+}
+
+
+/*
+ * =========================================
  * LOAD GALLERY
  * =========================================
  */
@@ -488,11 +644,14 @@ async function loadGallery(
       "Loading photos..."
     );
 
-    photoGrid.innerHTML =
-      "";
+      photoGrid.innerHTML =
+        "";
 
-    emptyState.hidden =
-      true;
+      galleryPagination.hidden =
+        true;
+
+      emptyState.hidden =
+        true;
   }
 
 
@@ -613,28 +772,23 @@ async function loadGallery(
 
     /*
      * =======================================
-     * CLEAR CURRENT GRID
-     * =======================================
-     *
-     * Rebuild the Gallery on each refresh.
-     * This keeps newly uploaded and removed
-     * photos synchronized.
-     */
-
-    photoGrid.innerHTML =
-      "";
-
-    emptyState.hidden =
-      true;
-
-
-    /*
-     * =======================================
      * EMPTY
      * =======================================
      */
 
     if (!photos.length) {
+
+      galleryPhotos =
+        [];
+
+      gallerySignature =
+        "";
+
+      photoGrid.innerHTML =
+        "";
+
+      galleryPagination.hidden =
+        true;
 
       emptyState.hidden =
         false;
@@ -653,8 +807,12 @@ async function loadGallery(
      * =======================================
      */
 
-    photos.forEach(
-      renderPhoto
+    emptyState.hidden =
+      true;
+
+
+    updateGallery(
+      photos
     );
 
 
@@ -1927,7 +2085,7 @@ function startGalleryAutoRefresh() {
 
   /*
    * Check for new gallery photos every
-   * 30 seconds.
+   * 15 seconds.
    *
    * The existing secure admin session
    * token is reused, so MetaMask is NOT
@@ -1955,7 +2113,7 @@ function startGalleryAutoRefresh() {
         loadGallery(true);
 
       },
-      30000
+      15000
     );
 }
 
@@ -2057,6 +2215,53 @@ function disconnectAdmin() {
 disconnectButton.addEventListener(
   "click",
   disconnectAdmin
+);
+
+
+refreshGalleryButton.addEventListener(
+  "click",
+  function () {
+
+    loadGallery();
+
+  }
+);
+
+
+galleryPreviousPage.addEventListener(
+  "click",
+  function () {
+
+    if (currentGalleryPage > 1) {
+
+      currentGalleryPage--;
+
+      renderGalleryPage();
+    }
+
+  }
+);
+
+
+galleryNextPage.addEventListener(
+  "click",
+  function () {
+
+    const pageCount =
+      Math.ceil(
+        galleryPhotos.length /
+        GALLERY_PAGE_SIZE
+      );
+
+
+    if (currentGalleryPage < pageCount) {
+
+      currentGalleryPage++;
+
+      renderGalleryPage();
+    }
+
+  }
 );
 
 
