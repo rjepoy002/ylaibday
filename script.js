@@ -873,3 +873,105 @@ revealElements.forEach(
 
   }
 );
+
+
+// =========================================
+// MESSAGES FOR YLAI
+// =========================================
+
+const PUBLIC_MESSAGES_URL =
+  "https://liajjeatukvkjzolorrq.supabase.co/functions/v1/public-messages";
+
+
+function createMessageCard(name, message) {
+
+  const card = document.createElement("article");
+  card.className = "message-card";
+
+  const quote = document.createElement("span");
+  quote.className = "message-quote";
+  quote.setAttribute("aria-hidden", "true");
+  quote.textContent = "\u201c";
+
+  const text = document.createElement("p");
+  text.className = "message-text";
+  text.textContent = message;
+
+  const author = document.createElement("p");
+  author.className = "message-author";
+  author.textContent = `\u2014 ${name}`;
+
+  card.append(quote, text, author);
+
+  return card;
+}
+
+
+async function loadMessages() {
+
+  const track = document.getElementById("messagesTrack");
+  const status = document.getElementById("messagesStatus");
+
+  if (!track || !status) return;
+
+  let requestTimeout;
+
+  try {
+
+    const controller = new AbortController();
+    requestTimeout = setTimeout(
+      () => controller.abort(),
+      10000
+    );
+
+    const response = await fetch(
+      PUBLIC_MESSAGES_URL,
+      { signal: controller.signal }
+    );
+
+    if (!response.ok) throw new Error("Unable to load messages.");
+
+    const payload = await response.json();
+
+    const messages = Array.isArray(payload.messages)
+      ? payload.messages.filter((item) => {
+          return item && typeof item.name === "string" &&
+            typeof item.message === "string" &&
+            item.name.trim().length > 0 && item.message.trim().length > 0;
+        })
+      : [];
+
+    if (messages.length === 0) {
+      status.textContent = "Sweet wishes for Ylai will appear here.";
+      return;
+    }
+
+    const cards = messages.map((item) => {
+      return createMessageCard(item.name.trim(), item.message.trim());
+    });
+
+    track.replaceChildren(...cards);
+
+    if (cards.length > 1) {
+      cards.forEach((card) => {
+        const duplicate = card.cloneNode(true);
+        duplicate.setAttribute("aria-hidden", "true");
+        track.append(duplicate);
+      });
+
+      track.classList.add("is-looping");
+    }
+
+    status.hidden = true;
+
+  } catch (error) {
+
+    console.warn("Messages for Ylai could not be loaded.", error);
+    status.textContent = "Sweet wishes for Ylai will appear here.";
+  } finally {
+    clearTimeout(requestTimeout);
+  }
+}
+
+
+loadMessages();
