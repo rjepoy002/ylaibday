@@ -975,3 +975,147 @@ async function loadMessages() {
 
 
 loadMessages();
+
+
+// =========================================
+// EVENT VENUE MAP MODAL
+// =========================================
+const EVENT_VENUES = {
+
+  "sta-monica": {
+
+    event: "01 \u00b7 Christening",
+
+    title:
+      "Sta. Monica Parish Church",
+
+    time:
+      "1:00 PM",
+
+    map:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2337.79351055793!2d118.7366596118965!3d9.79275178326818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33b5631689ab4bad%3A0x4983ab4318ecbe37!2sSta.%20Monica%20Parish%20Puerto%20Princesa%20City%20Palawan!5e0!3m2!1sen!2sph!4v1791209709120!5m2!1sen!2sph",
+
+    directions:
+      "https://maps.app.goo.gl/YaAaXwhUGDSPSpwu7"
+
+  },
+
+
+  "yvonne": {
+
+    event: "02 \u00b7 Birthday Celebration",
+
+    title:
+      "Yvonne's Nest",
+
+    time:
+      "4:00 PM onwards",
+
+    map:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7863.002698988839!2d118.74886352208864!3d9.808192004634641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33b56315e0353253%3A0x9cd62596e1aad8b0!2sYvonne's%20Nest!5e0!3m2!1sen!2sph!4v1791208076033!5m2!1sen!2sph",
+
+    directions:
+      "https://maps.app.goo.gl/e69RGNgW2rYBnP5x5"
+
+  }
+
+};
+
+const venueModal = document.getElementById("venueMapModal");
+const venueModalEvent = document.getElementById("venueModalEvent");
+const venueModalTitle = document.getElementById("venueModalTitle");
+const venueModalTime = document.getElementById("venueModalTime");
+const venueModalLocation = document.getElementById("venueModalLocation");
+const venueModalIframe = document.getElementById("venueModalIframe");
+const venueModalDirections = document.getElementById("venueModalDirections");
+let venueModalTrigger = null;
+let venueMapClearTimeout;
+let venueBackgroundElements = [];
+
+function openVenueModal(venueKey, trigger = document.activeElement) {
+  const venue = EVENT_VENUES[venueKey];
+  if (!venue || !venueModal) return;
+
+  clearTimeout(venueMapClearTimeout);
+  if (!venueModal.classList.contains("is-open")) {
+    venueModalTrigger = trigger;
+    venueBackgroundElements = Array.from(document.body.children)
+      .filter((element) => element !== venueModal)
+      .map((element) => ({ element, inert: element.inert }));
+    venueBackgroundElements.forEach(({ element }) => {
+      element.inert = true;
+    });
+  }
+
+  venueModalEvent.textContent = venue.event;
+  venueModalTitle.textContent = venue.title;
+  venueModalTime.textContent = venue.time;
+  venueModalLocation.textContent = venue.title;
+  venueModalIframe.title = venue.title + " location";
+  venueModalIframe.src = venue.map;
+  venueModalDirections.href = venue.directions;
+  venueModal.classList.add("is-open");
+  venueModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("venue-modal-open");
+  // Wait for the hidden-to-visible transition before moving focus.
+  setTimeout(() => {
+    if (venueModal.classList.contains("is-open")) {
+      venueModal.querySelector(".venue-modal-close").focus({ preventScroll: true });
+    }
+  }, 350);
+}
+
+function closeVenueModal() {
+  if (!venueModal || !venueModal.classList.contains("is-open")) return;
+
+  venueBackgroundElements.forEach(({ element, inert }) => {
+    element.inert = inert;
+  });
+  venueBackgroundElements = [];
+  document.body.classList.remove("venue-modal-open");
+  if (venueModalTrigger && venueModalTrigger.isConnected) {
+    venueModalTrigger.focus({ preventScroll: true });
+  }
+  venueModal.classList.remove("is-open");
+  venueModal.setAttribute("aria-hidden", "true");
+
+  venueMapClearTimeout = setTimeout(() => {
+    if (!venueModal.classList.contains("is-open")) {
+      venueModalIframe.removeAttribute("src");
+    }
+  }, 300);
+}
+
+document.querySelectorAll(".venue-link").forEach((button) => {
+  button.addEventListener("click", () => {
+    openVenueModal(button.dataset.venue, button);
+  });
+});
+
+if (venueModal) {
+  venueModal.querySelectorAll("[data-close-venue-modal]").forEach((element) => {
+    element.addEventListener("click", closeVenueModal);
+  });
+
+  // Capture Escape before the existing photo and RSVP handlers.
+  document.addEventListener("keydown", (event) => {
+    if (!venueModal.classList.contains("is-open")) return;
+    if (event.key === "Escape") {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      closeVenueModal();
+      return;
+    }
+    if (event.key === "Tab") {
+      const first = venueModal.querySelector(".venue-modal-close");
+      const last = venueModalDirections;
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+  }, true);
+}

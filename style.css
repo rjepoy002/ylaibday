@@ -5661,7 +5661,509 @@ footer strong {
    MOBILE
 ========================================================= */
 
+/* =========================================================
+   CLICKABLE EVENT VENUES
+========================================================= */
+
+.event-venue {
+  margin:
+    0;
+}
+
+
+.venue-link {
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  gap:
+    7px;
+
+  padding:
+    0 0 3px;
+
+  border:
+    0;
+
+  border-bottom:
+    1px dashed
+    currentColor;
+
+  background:
+    transparent;
+
+  color:
+    inherit;
+
+  font:
+    inherit;
+
+  text-align:
+    left;
+
+  cursor:
+    pointer;
+
+  opacity:
+    0.9;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.venue-link:hover {
+  opacity:
+    1;
+
+  transform:
+    translateY(-1px);
+}
+
+
+.venue-link:focus-visible {
+  outline:
+    2px solid
+    var(--terracotta);
+
+  outline-offset:
+    5px;
+
+  border-radius:
+    3px;
+}
+
+
+.venue-pin {
+  flex-shrink:
+    0;
+
+  font-size:
+    0.9em;
+}
+
+/* =========================================================
+   VENUE MAP MODAL
+========================================================= */
+
+.venue-modal {
+  position:
+    fixed;
+
+  inset:
+    0;
+
+  z-index:
+    10000;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  padding:
+    24px;
+
+  visibility:
+    hidden;
+
+  opacity:
+    0;
+
+  pointer-events:
+    none;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+
+.venue-modal.is-open {
+  visibility:
+    visible;
+
+  opacity:
+    1;
+
+  pointer-events:
+    auto;
+}
+
+
+.venue-modal-backdrop {
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  background:
+    rgba(45, 37, 32, 0.68);
+
+  backdrop-filter:
+    blur(5px);
+
+  -webkit-backdrop-filter:
+    blur(5px);
+}
+
+
+.venue-modal-dialog {
+  position:
+    relative;
+
+  z-index:
+    1;
+
+  width:
+    min(760px, 100%);
+
+  max-height:
+    calc(100vh - 48px);
+
+  overflow-y:
+    auto;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:
+    28px;
+
+  background:
+    var(--paper-light);
+
+  box-shadow:
+    0 25px 80px
+    rgba(45, 37, 32, 0.28);
+
+  transform:
+    translateY(20px)
+    scale(0.98);
+
+  transition:
+    transform 0.35s
+    cubic-bezier(.22, 1, .36, 1);
+}
+
+
+.venue-modal.is-open
+.venue-modal-dialog {
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+
+/* CLOSE BUTTON */
+
+.venue-modal-close {
+  position:
+    absolute;
+
+  top:
+    17px;
+
+  right:
+    17px;
+
+  z-index:
+    5;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  width:
+    40px;
+
+  height:
+    40px;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(255, 253, 249, 0.94);
+
+  color:
+    var(--ink);
+
+  font-size:
+    1.6rem;
+
+  line-height:
+    1;
+
+  cursor:
+    pointer;
+}
+
+
+/* HEADER */
+
+.venue-modal-header {
+  padding:
+    32px 70px 25px 30px;
+}
+
+
+.venue-modal-header h3 {
+  margin:
+    5px 0 6px;
+
+  font-size:
+    clamp(2rem, 5vw, 2.8rem);
+}
+
+
+.venue-modal-time {
+  margin:
+    0;
+
+  font-weight:
+    600;
+
+  color:
+    var(--terracotta-dark);
+}
+
+
+/* MAP */
+
+.venue-modal-map {
+  width:
+    100%;
+
+  background:
+    var(--cream);
+}
+
+
+.venue-modal-map iframe {
+  display:
+    block;
+
+  width:
+    100%;
+
+  height:
+    390px;
+
+  border:
+    0;
+}
+
+
+/* FOOTER */
+
+.venue-modal-footer {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    25px;
+
+  padding:
+    24px 30px 28px;
+}
+
+
+.venue-modal-location {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    4px;
+}
+
+
+.venue-modal-location span {
+  font-size:
+    0.68rem;
+
+  letter-spacing:
+    0.12em;
+
+  text-transform:
+    uppercase;
+
+  color:
+    var(--muted);
+}
+
+
+.venue-modal-location strong {
+  color:
+    var(--ink);
+}
+
+
+.venue-directions-button {
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  flex-shrink:
+    0;
+
+  min-height:
+    46px;
+
+  padding:
+    11px 24px;
+
+  border:
+    1px solid
+    var(--terracotta);
+
+  border-radius:
+    30px;
+
+  background:
+    var(--terracotta);
+
+  color:
+    var(--white);
+
+  font-size:
+    0.8rem;
+
+  font-weight:
+    600;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.venue-directions-button:hover {
+  background:
+    var(--terracotta-dark);
+
+  transform:
+    translateY(-2px);
+}
+
+
+body.venue-modal-open {
+  overflow:
+    hidden;
+}
+
+.venue-pin svg {
+  display: block;
+}
+.venue-modal-map {
+  overflow: hidden;
+}
+.venue-modal-location {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.venue-modal-close:focus-visible,
+.venue-directions-button:focus-visible {
+  outline: 2px solid var(--terracotta-dark);
+  outline-offset: 4px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .venue-link,
+  .venue-modal,
+  .venue-modal-dialog,
+  .venue-directions-button {
+    transition: none;
+  }
+}
+
 @media (max-width: 800px) {
+
+  .venue-modal {
+    align-items:
+      flex-end;
+
+    padding:
+      12px;
+  }
+
+
+  .venue-modal-dialog {
+    width:
+      100%;
+
+    max-height:
+      calc(100dvh - 24px);
+
+    border-radius:
+      24px;
+  }
+
+
+  .venue-modal-header {
+    padding:
+      27px 58px 20px 22px;
+  }
+
+
+  .venue-modal-map iframe {
+    height:
+      300px;
+  }
+
+
+  .venue-modal-footer {
+    flex-direction:
+      column;
+
+    align-items:
+      stretch;
+
+    gap:
+      18px;
+
+    padding:
+      20px 22px 24px;
+  }
+
+
+  .venue-directions-button {
+    width:
+      100%;
+  }
+
 
   .nav {
     padding:
