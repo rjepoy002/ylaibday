@@ -3794,6 +3794,339 @@ footer strong {
 
 }
 
+/* Boho Rainbow final cascade (kept last for legacy stylesheet compatibility). */
+body { background: radial-gradient(circle at 10% 20%, rgba(217,164,65,.06), transparent 30%), radial-gradient(circle at 90% 40%, rgba(201,124,93,.07), transparent 30%), var(--boho-cream); }
+.nav { background: rgba(255,249,241,.9); border-bottom-color: rgba(116,89,74,.1); backdrop-filter: blur(12px); }
+.nav nav a:hover, .nav nav a:focus-visible { color: var(--boho-terracotta); }
+.nav-rsvp { border-color: rgba(201,124,93,.42); color: var(--boho-rust) !important; }
+.nav-rsvp:hover, .button:hover, .venue-directions-button:hover { background: var(--boho-rust); color: white; }
+.ylai-loader { background: radial-gradient(circle at 18% 18%, rgba(217,164,65,.13), transparent 25%), radial-gradient(circle at 84% 78%, rgba(169,184,156,.16), transparent 28%), var(--boho-cream); }
+.loader-rainbow { margin: 0 auto 27px; animation: bohoFloat 3.5s ease-in-out infinite; }
+.ylai-loader-name { color: var(--boho-rust); }
+.ylai-loader-name::after { content: ""; margin: 16px auto 0; width: 34px; height: 1px; background: var(--boho-mustard); }
+.ylai-loader-fullname { margin-top: 18px; color: var(--boho-brown); }
+.ylai-loader-celebration { margin: 10px 0 0; color: var(--boho-rust); font-size: .68rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.hero { min-height: min(780px, calc(100vh - 68px)); }
+.hero-rainbow { position: absolute; left: max(3vw, 28px); top: 9%; opacity: .72; transform: rotate(-5deg); }
+.hero-title span:last-child { color: var(--boho-rust); }
+.button, .venue-directions-button { background: var(--boho-terracotta); box-shadow: 0 7px 18px rgba(184,102,74,.2); }
+.hero-photo { padding: 9px; border-radius: 48% 48% 42% 42%; background: var(--boho-white); box-shadow: var(--boho-shadow); }
+.hero-photo::before { inset: -12px 10px 12px -10px; border-color: rgba(169,184,156,.6); border-radius: 48% 48% 42% 42%; }
+.hero-photo img { height: 590px; border-radius: 46% 46% 40% 40%; }
+.hero-photo .boho-sun { right: -38px; top: 10%; }
+.badge { background: var(--boho-beige); color: var(--boho-rust); }
+.section::after { content: "•  ☼  •"; display: block; margin: 78px auto -94px; color: var(--boho-mustard); font-family: Georgia,serif; font-size: .8rem; letter-spacing: .75em; text-align: center; }
+.gifts-section::after, .messages-section::after, .rsvp::after { display: none; }
+.section-heading h2, .rsvp-card h2 { color: var(--boho-brown); }
+.eyebrow { color: var(--boho-rust); }
+.countdown-wrap { border: 0; background: linear-gradient(90deg, rgba(243,227,211,.5), rgba(255,253,249,.88), rgba(243,227,211,.5)); }
+.countdown-wrap::before { content: "☼"; color: var(--boho-mustard); }
+.countdown { gap: clamp(11px,2.5vw,28px); }
+.countdown div { min-width: clamp(67px,10vw,105px); padding: 16px 11px; border: 1px solid rgba(201,124,93,.16); border-radius: 18px; background: var(--boho-white); box-shadow: 0 7px 20px rgba(116,89,74,.08); }
+.countdown div:nth-child(2n) { border-top: 3px solid var(--boho-sage); }
+.countdown div:nth-child(2n + 1) { border-top: 3px solid var(--boho-dusty-rose); }
+.event { background: rgba(243,227,211,.28); }
+.section-rainbow { position: absolute; top: 41px; right: 7vw; width: 108px; height: 59px; opacity: .48; transform: rotate(6deg); }
+.event-card, .event-card.featured { border: 1px solid rgba(201,124,93,.18); border-radius: 24px; background: rgba(255,253,249,.94); box-shadow: var(--boho-shadow); }
+.event-card.featured { background: linear-gradient(145deg, rgba(255,253,249,.98), rgba(243,227,211,.78)); }
+.event-card::after { content: ""; display: block; width: 42px; height: 3px; margin-top: 25px; border-radius: 999px; background: var(--boho-mustard); }
+.event-card:nth-child(2)::after { background: var(--boho-sage); }
+.gallery-item, .uploaded-gallery-item { border-radius: 22px; background: var(--boho-white); box-shadow: var(--boho-shadow); }
+.gallery-item { border: 4px solid var(--boho-white); }
+.gallery-item:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(116,89,74,.17); }
+.gallery-button:hover img { transform: scale(1.035); }
+.gallery-upload, .uploaded-gallery, .godparent-group { border-color: rgba(201,124,93,.15); background: rgba(255,253,249,.78); box-shadow: var(--boho-shadow); }
+.uploader-name-modal-box, .rsvp-modal-box, .venue-modal-dialog { border-radius: 28px; background: var(--boho-white); }
+.rsvp { overflow: hidden; background: linear-gradient(135deg, rgba(243,227,211,.86), rgba(255,249,241,.95)); }
+.rsvp-rainbow { position: absolute; right: 7vw; bottom: 29px; width: 112px; height: 61px; opacity: .4; transform: rotate(-7deg); }
+.rsvp-card { border: 1px solid rgba(201,124,93,.17); border-radius: 28px; background: var(--boho-white); box-shadow: var(--boho-shadow); }
+.rsvp-card input, .rsvp-card select, .rsvp-card textarea { border-color: #e8d4c2; border-radius: 14px; background: var(--boho-cream); }
+.rsvp-card input:focus, .rsvp-card select:focus, .rsvp-card textarea:focus { border-color: var(--boho-terracotta); box-shadow: 0 0 0 3px rgba(201,124,93,.12); }
+.message-card { border: 1px solid rgba(201,124,93,.13); border-left: 4px solid var(--boho-dusty-rose); border-radius: 20px; background: var(--boho-white); box-shadow: var(--boho-shadow); }
+.message-card:nth-child(even) { border-radius: 20px; border-left-color: var(--boho-sage); }
+.messages-section { background: linear-gradient(135deg, rgba(255,253,249,.88), rgba(243,227,211,.52)); }
+.gift-card { border-color: rgba(201,124,93,.16); border-radius: 22px; background: var(--boho-white); box-shadow: var(--boho-shadow); }
+.gift-icon { color: var(--boho-terracotta); }
+@media (max-width: 800px) { .hero { min-height: auto; padding-top: 92px; } .hero-rainbow { left: 50%; top: 20px; width: 102px; height: 56px; transform: translateX(-50%); } .hero-copy { text-align: center; } .hero-meta { justify-content: center; } .lead { margin-inline: auto; } .hero-photo { width: min(420px,90vw); margin-inline: auto; } .hero-photo img { height: min(115vw,540px); } .hero-photo .boho-sun { right: -22px; width: 58px; height: 58px; } .section::after { margin-top: 56px; margin-bottom: -75px; } .section-rainbow { right: 22px; top: 30px; width: 76px; height: 42px; } .countdown { gap: 8px; } .countdown div { min-width: 0; flex: 1; padding: 12px 5px; } .countdown strong { font-size: clamp(1.65rem,8vw,2.2rem); } .countdown span { font-size: .53rem; letter-spacing: .08em; } .rsvp-rainbow { right: 16px; bottom: 18px; width: 78px; height: 43px; } }
+@media (prefers-reduced-motion: reduce) { .loader-rainbow { animation: none; } }
+
+/* Final cascade: this project retains legacy component styles below the
+   original theme, so these concise rules intentionally take final priority. */
+body { background: radial-gradient(circle at 10% 20%, rgba(217,164,65,.06), transparent 30%), radial-gradient(circle at 90% 40%, rgba(201,124,93,.07), transparent 30%), var(--boho-cream); }
+body.boho-theme::before { opacity: .2; }
+.nav { background: rgba(255,249,241,.9); border-bottom-color: rgba(116,89,74,.1); backdrop-filter: blur(12px); }
+.nav nav a:hover, .nav nav a:focus-visible { color: var(--boho-terracotta); }
+.nav-rsvp { border-color: rgba(201,124,93,.42); color: var(--boho-rust) !important; }
+.nav-rsvp:hover { background: var(--boho-terracotta); }
+.ylai-loader { background: radial-gradient(circle at 18% 18%, rgba(217,164,65,.13), transparent 25%), radial-gradient(circle at 84% 78%, rgba(169,184,156,.16), transparent 28%), var(--boho-cream); }
+.loader-rainbow { margin: 0 auto 27px; animation: bohoFloat 3.5s ease-in-out infinite; }
+.ylai-loader-name { color: var(--boho-rust); }
+.ylai-loader-name::after { content: ""; margin: 16px auto 0; width: 34px; height: 1px; background: var(--boho-mustard); }
+.ylai-loader-fullname { margin-top: 18px; color: var(--boho-brown); }
+.ylai-loader-celebration { margin: 10px 0 0; color: var(--boho-rust); font-size: .68rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.hero { min-height: min(780px, calc(100vh - 68px)); }
+.hero-rainbow { position: absolute; left: max(3vw, 28px); top: 9%; opacity: .72; transform: rotate(-5deg); }
+.hero-title span:last-child, .button:hover, .venue-directions-button:hover { background: var(--boho-rust); color: white; }
+.hero-title span:last-child { background: none; }
+.button, .venue-directions-button { background: var(--boho-terracotta); box-shadow: 0 7px 18px rgba(184,102,74,.2); }
+.hero-photo { padding: 9px; border-radius: 48% 48% 42% 42%; background: var(--boho-white); box-shadow: var(--boho-shadow); }
+.hero-photo::before { inset: -12px 10px 12px -10px; border-color: rgba(169,184,156,.6); border-radius: 48% 48% 42% 42%; }
+.hero-photo img { height: 590px; border-radius: 46% 46% 40% 40%; }
+.hero-photo .boho-sun { right: -38px; top: 10%; }
+.badge { background: var(--boho-beige); color: var(--boho-rust); }
+.section::after { content: "•  ☼  •"; display: block; margin: 78px auto -94px; color: var(--boho-mustard); font-family: Georgia,serif; font-size: .8rem; letter-spacing: .75em; text-align: center; }
+.gifts-section::after, .messages-section::after, .rsvp::after { display: none; }
+.section-heading h2, .rsvp-card h2 { color: var(--boho-brown); }
+.eyebrow { color: var(--boho-rust); }
+.countdown-wrap { border: 0; background: linear-gradient(90deg, rgba(243,227,211,.5), rgba(255,253,249,.88), rgba(243,227,211,.5)); }
+.countdown-wrap::before { content: "☼"; color: var(--boho-mustard); }
+.countdown { gap: clamp(11px, 2.5vw, 28px); }
+.countdown div { min-width: clamp(67px, 10vw, 105px); padding: 16px 11px; border: 1px solid rgba(201,124,93,.16); border-radius: 18px; background: var(--boho-white); box-shadow: 0 7px 20px rgba(116,89,74,.08); }
+.countdown div:nth-child(2n) { border-top: 3px solid var(--boho-sage); }
+.countdown div:nth-child(2n + 1) { border-top: 3px solid var(--boho-dusty-rose); }
+.event { background: rgba(243,227,211,.28); }
+.section-rainbow { position: absolute; top: 41px; right: 7vw; width: 108px; height: 59px; opacity: .48; transform: rotate(6deg); }
+.event-card, .event-card.featured { border: 1px solid rgba(201,124,93,.18); border-radius: 24px; background: rgba(255,253,249,.94); box-shadow: var(--boho-shadow); }
+.event-card.featured { background: linear-gradient(145deg, rgba(255,253,249,.98), rgba(243,227,211,.78)); }
+.event-card::after { content: ""; display: block; width: 42px; height: 3px; margin-top: 25px; border-radius: 999px; background: var(--boho-mustard); }
+.event-card:nth-child(2)::after { background: var(--boho-sage); }
+.gallery-item, .uploaded-gallery-item { border-radius: 22px; background: var(--boho-white); box-shadow: var(--boho-shadow); }
+.gallery-item { border: 4px solid var(--boho-white); }
+.gallery-item:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(116,89,74,.17); }
+.gallery-button:hover img { transform: scale(1.035); }
+.gallery-upload, .uploaded-gallery, .godparent-group { border-color: rgba(201,124,93,.15); background: rgba(255,253,249,.78); box-shadow: var(--boho-shadow); }
+.uploader-name-modal-box, .rsvp-modal-box, .venue-modal-dialog { border-radius: 28px; background: var(--boho-white); }
+.rsvp { overflow: hidden; background: linear-gradient(135deg, rgba(243,227,211,.86), rgba(255,249,241,.95)); }
+.rsvp-rainbow { position: absolute; right: 7vw; bottom: 29px; width: 112px; height: 61px; opacity: .4; transform: rotate(-7deg); }
+.rsvp-card { border: 1px solid rgba(201,124,93,.17); border-radius: 28px; background: var(--boho-white); box-shadow: var(--boho-shadow); }
+.rsvp-card input, .rsvp-card select, .rsvp-card textarea { border-color: #e8d4c2; border-radius: 14px; background: var(--boho-cream); }
+.rsvp-card input:focus, .rsvp-card select:focus, .rsvp-card textarea:focus { border-color: var(--boho-terracotta); box-shadow: 0 0 0 3px rgba(201,124,93,.12); }
+.message-card { border: 1px solid rgba(201,124,93,.13); border-left: 4px solid var(--boho-dusty-rose); border-radius: 20px; background: var(--boho-white); box-shadow: var(--boho-shadow); }
+.message-card:nth-child(even) { border-radius: 20px; border-left-color: var(--boho-sage); }
+.messages-section { background: linear-gradient(135deg, rgba(255,253,249,.88), rgba(243,227,211,.52)); }
+.gift-card { border-color: rgba(201,124,93,.16); border-radius: 22px; background: var(--boho-white); box-shadow: var(--boho-shadow); }
+.gift-icon { color: var(--boho-terracotta); }
+@media (max-width: 800px) { .hero { min-height: auto; padding-top: 92px; } .hero-rainbow { left: 50%; top: 20px; width: 102px; height: 56px; transform: translateX(-50%); } .hero-copy { text-align: center; } .hero-meta { justify-content: center; } .lead { margin-inline: auto; } .hero-photo { width: min(420px,90vw); margin-inline: auto; } .hero-photo img { height: min(115vw,540px); } .hero-photo .boho-sun { right: -22px; width: 58px; height: 58px; } .section::after { margin-top: 56px; margin-bottom: -75px; } .section-rainbow { right: 22px; top: 30px; width: 76px; height: 42px; } .countdown { gap: 8px; } .countdown div { min-width: 0; flex: 1; padding: 12px 5px; } .countdown strong { font-size: clamp(1.65rem,8vw,2.2rem); } .countdown span { font-size: .53rem; letter-spacing: .08em; } .rsvp-rainbow { right: 16px; bottom: 18px; width: 78px; height: 43px; } }
+@media (prefers-reduced-motion: reduce) { .loader-rainbow { animation: none; } }
+
+/* =========================================================
+   BOHO RAINBOW REFINEMENT
+   Decorative additions live at the end of the stylesheet so the
+   invitation keeps its established behavior while sharing one palette.
+========================================================= */
+
+:root {
+  --boho-cream: #fff9f1;
+  --boho-beige: #f3e3d3;
+  --boho-sand: #dfc5a8;
+  --boho-terracotta: #c97c5d;
+  --boho-rust: #b8664a;
+  --boho-mustard: #d9a441;
+  --boho-dusty-rose: #d7a0a0;
+  --boho-sage: #a9b89c;
+  --boho-brown: #74594a;
+  --boho-dark: #493c35;
+  --boho-white: #fffdf9;
+  --boho-shadow: 0 12px 35px rgba(116, 89, 74, 0.12);
+
+  --ink: var(--boho-dark);
+  --ink-soft: var(--boho-brown);
+  --paper: var(--boho-cream);
+  --paper-light: var(--boho-white);
+  --cream: var(--boho-beige);
+  --sand: var(--boho-sand);
+  --terracotta: var(--boho-terracotta);
+  --terracotta-dark: var(--boho-rust);
+  --sage: var(--boho-sage);
+  --rose: var(--boho-dusty-rose);
+  --white: var(--boho-white);
+  --shadow: var(--boho-shadow);
+}
+
+body {
+  color: var(--boho-dark);
+  background:
+    radial-gradient(circle at 10% 20%, rgba(217, 164, 65, 0.06), transparent 30%),
+    radial-gradient(circle at 90% 40%, rgba(201, 124, 93, 0.07), transparent 30%),
+    var(--boho-cream);
+}
+
+body.boho-theme::before {
+  opacity: .2;
+  background-image: radial-gradient(rgba(116, 89, 74, .1) .55px, transparent .65px);
+  background-size: 9px 9px;
+}
+
+::selection {
+  color: var(--boho-dark);
+  background: rgba(217, 164, 65, .3);
+}
+
+:focus-visible {
+  outline: 3px solid var(--boho-mustard);
+  outline-offset: 4px;
+}
+
+.boho-rainbow {
+  display: block;
+  width: 152px;
+  height: 82px;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 62% 110% at 50% 100%, transparent 0 35%, var(--boho-terracotta) 36% 42%, transparent 43% 49%, var(--boho-dusty-rose) 50% 56%, transparent 57% 63%, var(--boho-mustard) 64% 70%, transparent 71% 77%, var(--boho-sage) 78% 84%, transparent 85%);
+  filter: drop-shadow(0 5px 9px rgba(116, 89, 74, .08));
+}
+
+.boho-sun {
+  position: absolute;
+  z-index: -1;
+  width: 74px;
+  height: 74px;
+  border: 2px solid rgba(217, 164, 65, .5);
+  border-radius: 50%;
+  background: rgba(217, 164, 65, .1);
+}
+
+.boho-sun::before,
+.boho-sun::after {
+  content: "";
+  position: absolute;
+  inset: -13px 34px;
+  border-block: 2px solid rgba(217, 164, 65, .34);
+  border-radius: 50%;
+}
+
+.boho-sun::after {
+  inset: 34px -13px;
+  border-inline: 2px solid rgba(217, 164, 65, .34);
+  border-block: 0;
+}
+
+/* Splash: retain its loading lock, but make the first impression a small invitation. */
+.ylai-loader {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(217, 164, 65, .13), transparent 25%),
+    radial-gradient(circle at 84% 78%, rgba(169, 184, 156, .16), transparent 28%),
+    var(--boho-cream);
+}
+
+.ylai-loader::before,
+.ylai-loader::after { border-color: rgba(201, 124, 93, .2); }
+.ylai-loader::after { border-color: rgba(169, 184, 156, .3); }
+.loader-rainbow { margin: 0 auto 27px; animation: bohoFloat 3.5s ease-in-out infinite; }
+.ylai-loader-name { color: var(--boho-rust); }
+.ylai-loader-name::after { content: ""; margin: 16px auto 0; width: 34px; height: 1px; background: var(--boho-mustard); }
+.ylai-loader-fullname { margin-top: 18px; color: var(--boho-brown); }
+.ylai-loader-celebration { margin: 10px 0 0; color: var(--boho-rust); font-size: .68rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+
+/* Navigation and hero */
+.nav {
+  background: rgba(255, 249, 241, .9);
+  border-bottom: 1px solid rgba(116, 89, 74, .1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.nav nav a:hover, .nav nav a:focus-visible { color: var(--boho-terracotta); }
+.nav-rsvp { border-color: rgba(201, 124, 93, .42); color: var(--boho-rust) !important; }
+.nav-rsvp:hover { background: var(--boho-terracotta); }
+
+.hero { min-height: min(780px, calc(100vh - 68px)); }
+.hero-rainbow { position: absolute; left: max(3vw, 28px); top: 9%; opacity: .72; transform: rotate(-5deg); }
+.hero::before { border-color: rgba(201, 124, 93, .25); }
+.hero::after { color: var(--boho-mustard); }
+.hero-title span:last-child { color: var(--boho-rust); }
+.hero-meta { color: var(--boho-brown); }
+.button, .venue-directions-button { background: var(--boho-terracotta); box-shadow: 0 7px 18px rgba(184, 102, 74, .2); }
+.button:hover, .venue-directions-button:hover { background: var(--boho-rust); }
+.hero-photo { padding: 9px; border-radius: 48% 48% 42% 42%; background: var(--boho-white); box-shadow: var(--boho-shadow); }
+.hero-photo::before { inset: -12px 10px 12px -10px; border-color: rgba(169, 184, 156, .6); border-radius: 48% 48% 42% 42%; }
+.hero-photo img { height: 590px; border-radius: 46% 46% 40% 40%; }
+.hero-photo .boho-sun { right: -38px; top: 10%; }
+.badge { background: var(--boho-beige); color: var(--boho-rust); }
+
+/* Gentle recurring section rhythm */
+.section::after {
+  content: "•  ☼  •";
+  display: block;
+  margin: 78px auto -94px;
+  color: var(--boho-mustard);
+  font-family: Georgia, serif;
+  font-size: .8rem;
+  letter-spacing: .75em;
+  text-align: center;
+}
+.gifts-section::after, .messages-section::after, .rsvp::after { display: none; }
+.section-heading h2, .rsvp-card h2 { color: var(--boho-brown); }
+.eyebrow { color: var(--boho-rust); }
+
+/* Countdown and event cards */
+.countdown-wrap { border: 0; background: linear-gradient(90deg, rgba(243, 227, 211, .5), rgba(255, 253, 249, .88), rgba(243, 227, 211, .5)); }
+.countdown-wrap::before { content: "☼"; color: var(--boho-mustard); }
+.countdown { gap: clamp(11px, 2.5vw, 28px); }
+.countdown div { min-width: clamp(67px, 10vw, 105px); padding: 16px 11px; border: 1px solid rgba(201, 124, 93, .16); border-radius: 18px; background: var(--boho-white); box-shadow: 0 7px 20px rgba(116, 89, 74, .08); }
+.countdown div:nth-child(2n) { border-top: 3px solid var(--boho-sage); }
+.countdown div:nth-child(2n + 1) { border-top: 3px solid var(--boho-dusty-rose); }
+.countdown strong { color: var(--boho-rust); }
+.event { background: rgba(243, 227, 211, .28); }
+.section-rainbow { position: absolute; top: 41px; right: 7vw; width: 108px; height: 59px; opacity: .48; transform: rotate(6deg); }
+.event-card, .event-card.featured { border: 1px solid rgba(201, 124, 93, .18); border-radius: 24px; background: rgba(255, 253, 249, .94); box-shadow: var(--boho-shadow); }
+.event-card.featured { background: linear-gradient(145deg, rgba(255,253,249,.98), rgba(243,227,211,.78)); }
+.event-card::after { content: ""; display: block; width: 42px; height: 3px; margin-top: 25px; border-radius: 999px; background: var(--boho-mustard); }
+.event-card:nth-child(2)::after { background: var(--boho-sage); }
+.event-number, .event-card.featured .event-number { color: var(--boho-dusty-rose); }
+.venue-link { color: var(--boho-rust); }
+
+/* Images, uploads, and response surfaces */
+.gallery-item, .uploaded-gallery-item { border-radius: 22px; background: var(--boho-white); box-shadow: var(--boho-shadow); }
+.gallery-item { border: 4px solid var(--boho-white); }
+.gallery-item:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(116, 89, 74, .17); }
+.gallery-button:hover img { transform: scale(1.035); }
+.gallery-upload, .uploaded-gallery, .godparent-group { border-color: rgba(201, 124, 93, .15); background: rgba(255, 253, 249, .78); box-shadow: var(--boho-shadow); }
+.uploader-name-modal-box, .rsvp-modal-box, .venue-modal-dialog { border-radius: 28px; background: var(--boho-white); }
+.uploader-name-modal-box::before { content: ""; display: block; width: 98px; height: 53px; margin: 0 auto 16px; background: radial-gradient(ellipse 62% 110% at 50% 100%, transparent 0 35%, var(--boho-terracotta) 36% 42%, transparent 43% 49%, var(--boho-dusty-rose) 50% 56%, transparent 57% 63%, var(--boho-mustard) 64% 70%, transparent 71% 77%, var(--boho-sage) 78% 84%, transparent 85%); }
+
+.rsvp { overflow: hidden; background: linear-gradient(135deg, rgba(243, 227, 211, .86), rgba(255, 249, 241, .95)); }
+.rsvp-rainbow { position: absolute; right: 7vw; bottom: 29px; width: 112px; height: 61px; opacity: .4; transform: rotate(-7deg); }
+.rsvp-card { border: 1px solid rgba(201, 124, 93, .17); border-radius: 28px; background: var(--boho-white); box-shadow: var(--boho-shadow); }
+.rsvp-card::before { color: var(--boho-mustard); }
+.rsvp-card input, .rsvp-card select, .rsvp-card textarea { border-color: #e8d4c2; border-radius: 14px; background: var(--boho-cream); }
+.rsvp-card input:focus, .rsvp-card select:focus, .rsvp-card textarea:focus { border-color: var(--boho-terracotta); box-shadow: 0 0 0 3px rgba(201,124,93,.12); }
+.message-card { border: 1px solid rgba(201, 124, 93, .13); border-left: 4px solid var(--boho-dusty-rose); border-radius: 20px; background: var(--boho-white); box-shadow: var(--boho-shadow); }
+.message-card:nth-child(even) { border-radius: 20px; border-left-color: var(--boho-sage); }
+.messages-section { background: linear-gradient(135deg, rgba(255,253,249,.88), rgba(243,227,211,.52)); }
+
+.gift-card { border-color: rgba(201, 124, 93, .16); border-radius: 22px; background: var(--boho-white); box-shadow: var(--boho-shadow); }
+.gift-icon { color: var(--boho-terracotta); }
+.gifts-section { background: transparent; }
+.venue-modal-map { border-block: 1px solid rgba(116, 89, 74, .1); }
+
+@keyframes bohoFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-5px) scale(1.015); }
+}
+
+@media (max-width: 800px) {
+  .hero { min-height: auto; padding-top: 92px; }
+  .hero-rainbow { left: 50%; top: 20px; width: 102px; height: 56px; transform: translateX(-50%); }
+  .hero-copy { text-align: center; }
+  .hero-meta { justify-content: center; }
+  .lead { margin-inline: auto; }
+  .hero-photo { width: min(420px, 90vw); margin-inline: auto; }
+  .hero-photo img { height: min(115vw, 540px); }
+  .hero-photo .boho-sun { right: -22px; width: 58px; height: 58px; }
+  .section::after { margin-top: 56px; margin-bottom: -75px; }
+  .section-rainbow { right: 22px; top: 30px; width: 76px; height: 42px; }
+  .countdown { gap: 8px; }
+  .countdown div { min-width: 0; flex: 1; padding: 12px 5px; }
+  .countdown strong { font-size: clamp(1.65rem, 8vw, 2.2rem); }
+  .countdown span { font-size: .53rem; letter-spacing: .08em; }
+  .rsvp-rainbow { right: 16px; bottom: 18px; width: 78px; height: 43px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-rainbow { animation: none; }
+}
+
 
 /* =========================================================
    GIFTS
